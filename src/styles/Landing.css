@@ -1,0 +1,81 @@
+#landingBox{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    height: 800px;
+}
+#silhouetteDiv{
+z-index: 2;
+align-self: center;
+height: 870px;
+
+
+}
+
+#silhouetteCopy{
+    height: 100%;
+    position: absolute;
+    left: 610px;
+    animation: fadeIn 1s ease-in both,  copyParallax ease, fadeOut 0.5s ease;
+    animation-delay: 0.5s, 0s, 0s;
+    animation-timeline: auto, scroll(root block), scroll(root block);
+    animation-range: normal, 0px 1700px, 1700px 2200px;
+}
+#shreyaChar{
+    height: 100%;
+    position: absolute;
+    left: 610px;
+    animation: fadeIn 1s ease-in both,  copyParallax ease;
+    animation-delay: 0.5s, 0s;
+    animation-timeline: auto, scroll(root block);
+    animation-range:normal, 0px 1700px;
+}
+
+#textLogoDiv{
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    align-self: center;
+    height: 500px;
+
+    opacity: 0;
+	animation: fadeIn 2s ease-in both; 
+}
+#road{
+    width: 100%;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -10%, 0); /* from opacity 0 and -y (simulates 'drop') */
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0); /* to opacity 1 and y=0 */
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+    }
+		
+	to {
+		opacity: 0;
+		
+	}
+}
+
+
+@keyframes copyParallax {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: 0 1000px;
+    }
+}
+
+#textLogo{
+    height: 100%;
+}
