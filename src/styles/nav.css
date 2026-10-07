@@ -10,10 +10,11 @@ body{
     position: fixed;
     height: 130px;
  right: 10px;
+ z-index: 10;
 
 }
 #navSpeech{
-  height: 350px;
+  height: 320px;
 
   position: fixed;
   top: 110px;

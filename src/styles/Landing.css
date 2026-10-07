@@ -1,34 +1,169 @@
 #landingBox{
     display: flex;
     align-self: center;
+    align-items: center;
     flex-direction: column;
     height: 800px;
 }
 #silhouetteDiv{
-z-index: 2;
-align-self: center;
-height: 870px;
-
-
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    height: min(870px, calc(100vh - 60px))
 }
 
 #silhouetteCopy{
-    height: 100%;
-    position: absolute;
-    left: 610px;
+    grid-area: 1 / 1;
+    height: min(870px, calc(100vh - 60px));
+    max-width: 100%;
+    max-height: 100%;
     animation: fadeIn 1s ease-in both,  copyParallax ease, fadeOut 0.5s ease;
     animation-delay: 0.5s, 0s, 0s;
     animation-timeline: auto, scroll(root block), scroll(root block);
     animation-range: normal, 0px 1700px, 1700px 2200px;
 }
-#shreyaChar{
+#shreyaChar, #shreyaCharS{
+    height: min(870px, calc(100vh - 60px));
+    grid-area: 1 / 1;
+    max-width: 100%;
+    max-height: 100%;
+    animation: characterParallax ease;
+    animation-delay:0s;
+    animation-timeline:  scroll(root block);
+    animation-range: 850px 350vh;
+    filter: drop-shadow(0 0 5px rgba(30, 96, 158, 0.8));
+}
+#ActualSpin{
+    grid-area: 1 / 1;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#shreyaCharS{
+    position: relative;
+   grid-area: 1 / 1;
+   height: min(870px, calc(100vh - 60px));
+   max-width: 100%;
+   max-height: 100%;
+   z-index: 5;
+   filter: none;
+   
+   animation: characterParallax ease, shreyaMoveRight ease;
+   animation-delay: 0s, 0s;
+   animation-timeline: scroll(root block), scroll(root block);
+   animation-range: 850px 350vh, 850px 350vh;
+}
+
+#shreyaWalking{
+    position: relative;
+    grid-area: 1 / 1;
+    left: 30vw;
+    translate: 0 350vh;
+    height: min(870px, calc(100vh - 60px));
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 5;
+}
+
+
+
+#shreyaChar{
+    position: relative;
+}
+ 
+
+#shreyaChar:hover{
+   
+    filter: drop-shadow(0 0 5px rgba(30, 96, 158, 0.8));
+    cursor: pointer;
+}
+#spinningDiv{
+    position: relative;
+    z-index: 5;
+    align-self: center;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    height: min(870px, 100vh);
+}
+
+.bubbles{
+    height: 300px;
+}
+#bubblesDiv{
+    z-index: 3;
     position: absolute;
-    left: 610px;
-    animation: fadeIn 1s ease-in both,  copyParallax ease;
-    animation-delay: 0.5s, 0s;
-    animation-timeline: auto, scroll(root block);
-    animation-range:normal, 0px 1700px;
+}
+#HelloThere{
+z-index: 2;
+
+position: relative;
+transform: translate(370px, -11px);
+
+}
+
+#BIS{
+    z-index: 4;
+
+position: relative;
+transform: translate(-380px, 300px);
+
+}
+
+#intro1{
+    z-index: 4;
+    height: 400px;
+    position: absolute;
+    transform: translate(-230px, 210px);
+    
+
+}
+#intro2{
+    z-index: 5;
+    height: 400px;
+    position: absolute;
+    transform: translate(-230px, 210px);
+    animation: fadeIn 3s ease
+
+}
+#intro3{
+    z-index: 6;
+    height: 400px;
+    position: absolute;
+    transform: translate(-230px, 210px);
+    
+
+}
+#intro4{
+    z-index: 7;
+    height: 400px;
+    position: absolute;
+    transform: translate(-230px, 210px);
+    
+
+}
+#intro5{
+    z-index: 8;
+    height: 400px;
+    position: absolute;
+    transform: translate(-230px, 210px);
+    
+
+}
+
+
+@keyframes enlarge {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
 }
 
 #textLogoDiv{
@@ -42,16 +177,19 @@ height: 870px;
 	animation: fadeIn 2s ease-in both; 
 }
 #road{
+
+    position: relative;
+    top: 1800px;
     width: 100%;
 }
 @keyframes fadeIn {
 	from {
 		opacity: 0;
-		transform: translate3d(0, -10%, 0); /* from opacity 0 and -y (simulates 'drop') */
+		
 	}
 	to {
 		opacity: 1;
-		transform: translate3d(0, 0, 0); /* to opacity 1 and y=0 */
+		
 	}
 }
 @keyframes fadeOut {
@@ -72,7 +210,27 @@ height: 870px;
     }
 
     to {
-        translate: 0 1000px;
+        translate: 0 100vh;
+    }
+}
+
+@keyframes characterParallax {
+    from {
+        translate: 0 85vh;
+    }
+
+    to {
+        translate: 0 350vh;
+    }
+}
+
+@keyframes shreyaMoveRight {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 30vw;
     }
 }
 
