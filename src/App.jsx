@@ -1,5 +1,5 @@
 import DropdownMenu from "./components/DropdownMenu";
-import Navbar from "./components/navbar"
+
 import NavItem from "./components/NavItem";
 import Landing from "./pages/Landing"
 import head from "./assets/headLogo.png";

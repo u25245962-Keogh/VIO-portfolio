@@ -1,6 +1,6 @@
 
 import NavItem from "../components/NavItem";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import head from "../assets/headLogo.png"
 import silhouette from "../assets/silhouette.png"
