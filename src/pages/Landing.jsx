@@ -3,12 +3,12 @@ import NavItem from "../components/NavItem";
 import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import head from "../assets/headLogo.png"
-import silhouette from "../assets/silhouette.png"
+//import silhouette from "../assets/silhouette.png"
 import shreyaChar from "../assets/Shreya-Front.png";
 import text from "../assets/textLogo.png"
 import "../styles/Landing.css"
 import "../styles/character.css";
-import silhouetteCopy from "../assets/silhouette - Copy.png"
+import silhouette from "../assets/silhouette - Copy.png"
 import { useEffect, useState } from "react";
 import road from "../assets/road.png"
 import spinShreya from "../assets/CharacterSpin.gif";
@@ -35,7 +35,7 @@ function Landing() {
     if (window.scrollY > 850) {
       setReplaceSil(true); // New image path
     } else {
-      setReplaceSil(false); // Revert back to original image
+      
     }
   });
 
