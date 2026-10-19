@@ -20,6 +20,10 @@ import intro3 from "../assets/intro3.png";
 import intro4 from "../assets/intro4.png";
 import intro5 from "../assets/intro5.png";
 import shreyaWalking from "../assets/Shreya-Front.png";
+import "../styles/Road.css"
+import RoadDecorations from "../assets/RoadDecorations.png"
+import ArtStall from "../assets/ArtStall.gif"
+
 
 
 
@@ -61,7 +65,7 @@ function Landing() {
           ) : spin ? (
             <div id="ActualSpin">
               {isWalking ? (
-                <img src={shreyaWalking} id="shreyaWalking" />
+                <img src={shreyaWalking} id="shreyaWalking" hidden/>
               ) : (
                 <img
                   src={spinShreya}
@@ -75,7 +79,7 @@ function Landing() {
                 />
               )}
 
-              <div id="bubblesDiv" >
+              <div id="bubblesDiv">
                 <img src={HelloThere} id="HelloThere" className="bubbles"></img>
                 <img src={BIS} id="BIS" className="bubbles"></img>
                 <img src={intro1} id="intro1" className="bubbles"></img>
@@ -97,7 +101,13 @@ function Landing() {
           )}
         </div>
       </div>
+      {isWalking ? (<img src={shreyaWalking} id="shreyaOutside" />) : (<p hidden >helo</p>)}
+      
       <img src={road} id="road"></img>
+      <img src={RoadDecorations} id="ReoadDecorations"></img>
+      <div id="ArtStallDiv">
+        <img src={ArtStall} id="ArtStall"></img>
+      </div>
     </>
   );
 

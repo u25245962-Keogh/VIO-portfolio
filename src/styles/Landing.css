@@ -188,12 +188,7 @@ transform: translate(-380px, 300px);
     opacity: 0;
 	animation: fadeIn 2s ease-in both; 
 }
-#road{
 
-    position: relative;
-    top: 2900px;
-    width: 100%;
-}
 @keyframes fadeIn {
 	from {
 		opacity: 0;

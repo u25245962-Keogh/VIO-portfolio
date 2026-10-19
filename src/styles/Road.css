@@ -1,0 +1,53 @@
+#shreyaOutside{
+    position: absolute;
+    z-index: 10;
+    height: 870px;
+
+    transform: translate(1410px, 2570px);
+    animation: outsideParallax linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 350vh 550vh;
+}
+
+@keyframes outsideParallax {
+    0% {
+        transform: translate(1410px, 2570px);
+    }
+
+    50% {
+        transform: translate(20px, 3670px);
+    }
+
+    100%{
+        transform: translate(1410px, 4690px);
+    }
+}
+
+#shreyaOutside:hover{
+    filter: drop-shadow(0 0 5px rgba(248, 247, 246, 0.8));
+    cursor: pointer;
+}
+#road{
+
+    position: relative;
+    top: 2900px;
+    width: 100%;
+    z-index: 3;
+}
+#ReoadDecorations{
+    position: relative;
+    top: -10300px;
+    width: 100%;
+    z-index: 11;
+}
+
+#ArtStallDiv{
+ 
+    position: absolute;
+    transform: translate(1000px,-22000px);
+    z-index: 6;
+}
+#ArtStall{
+    position: absolute;
+    height: 900px;
+}
