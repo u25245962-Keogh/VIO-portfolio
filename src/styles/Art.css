@@ -1,0 +1,20 @@
+button#ArtBack{
+font-family:  "Bebas Neue", sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 1em;
+background-color:  #ff7300;
+border-radius: 6px;
+padding: 10px;
+width: 100px;
+margin: 20px;
+outline: none;
+border: none;
+color: #153e5a;
+
+
+position: fixed;
+z-index: 5;
+
+
+}

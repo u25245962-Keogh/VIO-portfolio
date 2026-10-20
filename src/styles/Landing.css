@@ -109,13 +109,13 @@
     position: absolute;
     animation: fadeOut linear both;
     animation-timeline: view(block);
-    animation-range: exit 0% exit 140%;
+    animation-range: exit 20% exit 300%;
 }
 #HelloThere{
 z-index: 2;
 
 position: relative;
-transform: translate(370px, -11px);
+transform: translate(370px, 100px);
 
 }
 
@@ -123,7 +123,7 @@ transform: translate(370px, -11px);
     z-index: 4;
 
 position: relative;
-transform: translate(-380px, 300px);
+transform: translate(-380px, 400px);
 
 }
 
@@ -131,7 +131,7 @@ transform: translate(-380px, 300px);
     z-index: 4;
     height: 400px;
     position: absolute;
-    transform: translate(-230px, 210px);
+    transform: translate(-230px, 310px);
     
 
 }
@@ -139,7 +139,7 @@ transform: translate(-380px, 300px);
     z-index: 5;
     height: 400px;
     position: absolute;
-    transform: translate(-230px, 210px);
+    transform: translate(-230px, 310px);
     animation: fadeIn 3s ease
 
 }
@@ -147,7 +147,7 @@ transform: translate(-380px, 300px);
     z-index: 6;
     height: 400px;
     position: absolute;
-    transform: translate(-230px, 210px);
+    transform: translate(-230px, 310px);
     
 
 }
@@ -155,7 +155,7 @@ transform: translate(-380px, 300px);
     z-index: 7;
     height: 400px;
     position: absolute;
-    transform: translate(-230px, 210px);
+    transform: translate(-230px, 310px);
     
 
 }
@@ -163,7 +163,7 @@ transform: translate(-380px, 300px);
     z-index: 8;
     height: 400px;
     position: absolute;
-    transform: translate(-230px, 210px);
+    transform: translate(-230px, 310px);
     
 
 }

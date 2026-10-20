@@ -2,7 +2,21 @@ import head from "../assets/headLogo.png";
 import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
+import { Model } from "/Keogh_daytime";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useAnimations } from "@react-three/drei";
+import "../styles/Model.css"
+
+
 function Modelling() {
+  //const { actions, names } = useAnimations(animations, group);
+
+  // useLayoutEffect(() => {
+  //   names.forEach((animation) => {
+  //     actions?.[animation]?.play();
+  //   });
+  // }, [actions, names]);
+
   return (
     <>
       <Navbar>
@@ -10,7 +24,12 @@ function Modelling() {
           <DropdownMenu></DropdownMenu>
         </NavItem>
       </Navbar>
-      <p>3D modelling page</p>
+
+      <Canvas camera={{ fov: 64, position: [-2, 2, 0] }} id="Canvas">
+        <ambientLight intensity={5} />
+        <OrbitControls enableZoom={true} />
+        <Model />
+      </Canvas>
     </>
   );
 }

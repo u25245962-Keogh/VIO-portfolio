@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Art from "./pages/Art";
 import CodeSKills from "./pages/CodeSkills";
 import Modelling from "./pages/Modelling";
+import PolaroidLineCarousel from "./components/PolaroidLineCarousel";
+
 
 
 function App() {
@@ -18,7 +20,8 @@ function App() {
         <Route path="/" element={<Landing />}></Route>
         <Route path="/art" element={<Art />}></Route>
         <Route path="/CodeSkills" element={<CodeSKills />}></Route>
-        <Route path="/Modelling" element={<Modelling/>}></Route>
+        <Route path="/Modelling" element={<Modelling />}></Route>
+       
       </Routes>
     </BrowserRouter>
   );

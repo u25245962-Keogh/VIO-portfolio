@@ -6,21 +6,52 @@
     transform: translate(1410px, 2570px);
     animation: outsideParallax linear both;
     animation-timeline: scroll(root block);
-    animation-range: 350vh 550vh;
+    animation-range: 350vh 100%;
 }
 
 @keyframes outsideParallax {
     0% {
-        transform: translate(1410px, 2570px);
+        transform: translate(1410px, 2570px); /**/
     }
 
-    50% {
+    5% {
         transform: translate(20px, 3670px);
     }
-
-    100%{
-        transform: translate(1410px, 4690px);
+    14% {
+        transform: translate(20px, 3990px);/*at art stall*/
     }
+
+    16%{
+        transform: translate(1580px, 4690px);
+    }
+    19%{
+        transform: translate(1640px, 4690px);
+    }
+    23%{
+        transform: translate(20px,6000px);
+    }
+    27%{
+        transform: translate(500px,6500px)
+    }
+    45%{
+        transform: translate(1500px,8100px)
+    }
+    50%{
+        transform: translate(1500px,8500px)
+    }
+    55%{
+        transform: translate(10px,9500px)
+    }
+    63%{
+        transform: translate(10px,10900px)
+    }
+    69%{
+        transform: translate(1640px,11500px)
+    }
+    100%{
+        transform: translate(1640px,11500px)
+    }
+    
 }
 
 #shreyaOutside:hover{
@@ -42,12 +73,22 @@
 }
 
 #ArtStallDiv{
- 
+ cursor: pointer;
     position: absolute;
-    transform: translate(1000px,-22000px);
+    transform: translate(1000px,-8700px);
     z-index: 6;
 }
 #ArtStall{
     position: absolute;
     height: 900px;
+}
+.ArtSpeech{
+    transform: translate(-100px,200px);
+    height: 200px;
+    z-index: 10;
+}
+.ArtSpeech:hover{
+    filter: drop-shadow(1px 1px 50px rgb(248, 247, 246));
+    cursor: pointer;
+    
 }
