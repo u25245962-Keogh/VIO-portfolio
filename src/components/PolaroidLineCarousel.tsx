@@ -336,17 +336,17 @@ function useSlideImages(slides: Slide[]): string[] {
 }
 
 const PL_CSS = [
-  ".pl-root{position:relative;width:100%;overflow:hidden;background:var(--pl-bg);color:var(--pl-ink);user-select:none;-webkit-user-select:none;touch-action:pan-y;outline:none;cursor:grab}",
+  ".pl-root{position:relative;width:100%;overflow:hidden;background:transparent;color:var(--pl-ink);user-select:none;-webkit-user-select:none;touch-action:pan-y;outline:none;cursor:grab}",
   ".pl-root[data-drag='1']{cursor:grabbing}",
   ".pl-root:focus-visible{box-shadow:inset 0 0 0 2px var(--pl-ink)}",
-  ".pl-string{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}",
+  ".pl-string{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;}",
   ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:inherit}",
   ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 0;box-shadow:0 1px 2px rgba(0,0,0,.12),0 18px 30px -16px rgba(0,0,0,.4);transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease}",
   ".pl-card[data-on='0'] .pl-print{transform:scale(.9);filter:saturate(.7) brightness(.96)}",
   ".pl-shot{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d5cc}",
   ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none}",
   ".pl-note{height:46px;display:flex;align-items:center;justify-content:center;padding:0 6px;font:italic 400 22px/1.1 'Bebas Neue',sans-serif;color:#3b3833;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
-  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 3px rgba(0,0,0,.25)}",
+  ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#201221,#241c3a 45%,#201221);box-shadow:0 2px 3px rgba(0,0,0,.25)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.45);border-radius:1px}",
   ".pl-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(20px,4vh,40px);display:flex;align-items:center;gap:clamp(12px,2vw,24px);cursor:default;color:#fff}",
   ".pl-cap{flex:1;min-width:0;overflow:hidden;padding-bottom:.15em}",
@@ -370,7 +370,7 @@ export default function PolaroidLineCarousel({
   sag = 46,
   swing = 1,
   autoplay = 4500,
-  string = "#8a7f72",
+  string = "#ffffff",
   background = "var(--color-background, #153e5a)",
   ink = "var(--color-foreground, #161513)",
   onChange,
@@ -660,7 +660,6 @@ export default function PolaroidLineCarousel({
           {s.title ? <span className="pl-title">{s.title}</span> : null}
           {s.caption ? <span className="pl-sub">{s.caption}</span> : null}
         </div>
-       
       </div>
       <div className="pl-sr" aria-live="polite">
         {"Print " + (active + 1) + " of " + n + (s.title ? ": " + s.title : "")}

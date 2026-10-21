@@ -6,11 +6,12 @@ import NavItem from "../components/NavItem";
 import { Link } from "react-router-dom";
 import PolaroidLineCarousel from "../components/PolaroidLineCarousel";
 import "../styles/Art.css"
+import background from "../assets/ArtBackground.jpeg"
 
 import "../styles/font.css"
 function Art() {
   return (
-    <>
+    <div id="ArtPage" style={{ backgroundImage: `url(${background})` }}>
       <Navbar>
         <NavItem icon={head}>
           <DropdownMenu></DropdownMenu>
@@ -77,7 +78,7 @@ function Art() {
           },
         ]}
       />
-    </>
+    </div>
   );
 }
 

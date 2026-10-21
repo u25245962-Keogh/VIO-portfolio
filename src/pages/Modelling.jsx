@@ -6,7 +6,7 @@ import { Model } from "/Keogh_daytime";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations } from "@react-three/drei";
 import "../styles/Model.css"
-
+import background from "../assets/ModellingBackground.jpeg"
 
 function Modelling() {
   //const { actions, names } = useAnimations(animations, group);
@@ -18,7 +18,7 @@ function Modelling() {
   // }, [actions, names]);
 
   return (
-    <>
+    <div id="ModellingPage" style={{ backgroundImage: `url(${background})` }}>
       <Navbar>
         <NavItem icon={head}>
           <DropdownMenu></DropdownMenu>
@@ -30,7 +30,7 @@ function Modelling() {
         <OrbitControls enableZoom={true} />
         <Model />
       </Canvas>
-    </>
+    </div>
   );
 }
 

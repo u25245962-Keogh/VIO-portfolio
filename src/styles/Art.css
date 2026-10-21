@@ -10,11 +10,20 @@ width: 100px;
 margin: 20px;
 outline: none;
 border: none;
-color: #153e5a;
+color: #fcb035;
+
 
 
 position: fixed;
 z-index: 5;
 
 
+}
+
+#ArtPage {
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
 }

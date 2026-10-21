@@ -1,3 +1,10 @@
+#ModellingPage {
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 #Canvas {
     width: 100%;
     height: 80vh;

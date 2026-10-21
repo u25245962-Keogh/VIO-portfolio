@@ -63,7 +63,7 @@
     position: relative;
     top: 2900px;
     width: 100%;
-    z-index: 3;
+    z-index: 2;
 }
 #ReoadDecorations{
     position: relative;
@@ -88,6 +88,31 @@
     z-index: 10;
 }
 .ArtSpeech:hover{
+    filter: drop-shadow(1px 1px 50px rgb(248, 247, 246));
+    cursor: pointer;
+    
+}
+
+
+#ModellingStallDiv{
+    cursor: pointer;
+    position: absolute;
+    transform: translate(1000px,-6100px);
+    z-index: 6;
+
+}
+
+#ModellingStall{
+    position: absolute;
+    height: 900px; 
+}
+
+.ModelSpeech{
+    transform: translate(-100px,200px);
+    height: 200px;
+    z-index: 10;
+}
+.ModelSpeech:hover{
     filter: drop-shadow(1px 1px 50px rgb(248, 247, 246));
     cursor: pointer;
     

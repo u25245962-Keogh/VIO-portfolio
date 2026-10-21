@@ -8,7 +8,7 @@ import text from "../assets/textLogo.png";
 import "../styles/Landing.css";
 import "../styles/character.css";
 import silhouette from "../assets/silhouette - Copy.png";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import road from "../assets/road.png";
 import spinShreya from "../assets/CharacterSpin.gif";
 import HelloThere from "../assets/HelloThere.png";
@@ -24,26 +24,54 @@ import RoadDecorations from "../assets/RoadDecorations.png";
 import ArtStall from "../assets/ArtStall.gif";
 import ArtSpeech1 from "../assets/StallExcl.png"
 import ArtSpeech2 from "../assets/StallElip.png";
-import { Link } from "react-router-dom";
-import Art from "./Art";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ModellingStall from "../assets/ModellingStall.gif";
 
 
 
 function Landing() {
-  const [replaceSil, setReplaceSil] = useState(false);
-  const [spin, setSpin] = useState(false);
-  const [isWalking, setIsWalking] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const returningFromArt = location.state?.fromArt === true;
+  const [replaceSil, setReplaceSil] = useState(returningFromArt);
+  const [spin, setSpin] = useState(returningFromArt);
+  const [isWalking, setIsWalking] = useState(returningFromArt);
   const [ArtClicked, setArtClicked] = useState(false);
+  const [ModelClicked,setModelClicked] = useState(false)
 
   const [ArtChange, setArtChange] = useState(ArtSpeech1);
+  const hasInitializedScroll = useRef(false);
 
-  window.addEventListener("scroll", () => {
-    // Check if user has scrolled past 100px down the page
-    if (window.scrollY > 850) {
-      setReplaceSil(true); // New image path
-    } else {
+  useLayoutEffect(() => {
+    if (hasInitializedScroll.current) {
+      return;
     }
-  });
+    hasInitializedScroll.current = true;
+
+    if (returningFromArt) {
+      const scrollRangeStart = window.innerHeight * 3.5;
+      const scrollRangeEnd =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPosition =
+        scrollRangeStart + (scrollRangeEnd - scrollRangeStart) * 0.17;
+
+      window.scrollTo(0, Math.max(0, scrollPosition));
+      navigate(location.pathname, { replace: true, state: null });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, navigate, returningFromArt]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 850) {
+        setReplaceSil(true);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function changeArtSpeech(){
     setArtChange(ArtSpeech2)
@@ -59,6 +87,10 @@ function Landing() {
     setArtClicked(!ArtClicked);
     console.log(ArtClicked)
   }
+  function setModeClicked1() {
+    setModelClicked(!ModelClicked);
+  }
+  
 
   return (
     <>
@@ -120,14 +152,27 @@ function Landing() {
       )}
 
       <img src={road} id="road"></img>
-   
+
       <div id="ArtStallDiv" onClick={setArtClicked1}>
         <img src={ArtStall} id="ArtStall"></img>
         {ArtClicked ? (
           <Link to="/art" onClick={(event) => event.stopPropagation()}>
             <img src={ArtChange} className="ArtSpeech" />
           </Link>
-        ) : <p></p>}
+        ) : (
+          <p></p>
+        )}
+      </div>
+
+      <div id="ModellingStallDiv" onClick={setModeClicked1}>
+        <img src={ModellingStall} id="ModellingStall"></img>
+        {ModelClicked ? (
+          <Link to="/Modelling">
+            <img src={ArtChange} className="ModelSpeech" />
+          </Link>
+        ) : (
+          <p></p>
+        )}
       </div>
     </>
   );
