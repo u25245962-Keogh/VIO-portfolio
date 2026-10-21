@@ -2,7 +2,7 @@ import head from "../assets/headLogo.png";
 import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
-import { Model } from "/Keogh_daytime";
+import { Model } from "/Keogh_nighttime";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations } from "@react-three/drei";
 import "../styles/Model.css"
