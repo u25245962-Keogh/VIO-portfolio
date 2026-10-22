@@ -33,9 +33,11 @@ function Landing() {
   const location = useLocation();
   const navigate = useNavigate();
   const returningFromArt = location.state?.fromArt === true;
-  const [replaceSil, setReplaceSil] = useState(returningFromArt);
-  const [spin, setSpin] = useState(returningFromArt);
-  const [isWalking, setIsWalking] = useState(returningFromArt);
+  const returningFromModelling = location.state?.fromModelling === true;
+  const returningFromSubpage = returningFromArt || returningFromModelling;
+  const [replaceSil, setReplaceSil] = useState(returningFromSubpage);
+  const [spin, setSpin] = useState(returningFromSubpage);
+  const [isWalking, setIsWalking] = useState(returningFromSubpage);
   const [ArtClicked, setArtClicked] = useState(false);
   const [ModelClicked,setModelClicked] = useState(false)
 
@@ -48,19 +50,21 @@ function Landing() {
     }
     hasInitializedScroll.current = true;
 
-    if (returningFromArt) {
+    if (returningFromSubpage) {
       const scrollRangeStart = window.innerHeight * 3.5;
       const scrollRangeEnd =
         document.documentElement.scrollHeight - window.innerHeight;
+      const animationProgress = returningFromModelling ? 0.45 : 0.17;
       const scrollPosition =
-        scrollRangeStart + (scrollRangeEnd - scrollRangeStart) * 0.17;
+        scrollRangeStart +
+        (scrollRangeEnd - scrollRangeStart) * animationProgress;
 
       window.scrollTo(0, Math.max(0, scrollPosition));
       navigate(location.pathname, { replace: true, state: null });
     } else {
       window.scrollTo(0, 0);
     }
-  }, [location.pathname, navigate, returningFromArt]);
+  }, [location.pathname, navigate, returningFromModelling, returningFromSubpage]);
 
   useEffect(() => {
     function handleScroll() {

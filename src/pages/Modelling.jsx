@@ -19,7 +19,7 @@ function Modelling() {
 
   return (
     <div id="ModellingPage" style={{ backgroundImage: `url(${background})` }}>
-      <Link to="/">
+      <Link to="/" state={{ fromModelling: true }}>
         <button type="button" id="ModelBack">
           Back
         </button>

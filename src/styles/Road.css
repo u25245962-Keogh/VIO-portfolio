@@ -18,11 +18,11 @@
         transform: translate(20px, 3670px);
     }
     14% {
-        transform: translate(20px, 3990px);/*at art stall*/
+        transform: translate(20px, 3990px);
     }
 
     16%{
-        transform: translate(1580px, 4690px);
+        transform: translate(1580px, 4690px);/*at art stall*/
     }
     19%{
         transform: translate(1640px, 4690px);
