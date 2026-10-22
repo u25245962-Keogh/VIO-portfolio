@@ -7,7 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations } from "@react-three/drei";
 import "../styles/Model.css"
 import background from "../assets/ModellingBackground.jpeg"
-
+import { Link } from "react-router-dom";
 function Modelling() {
   //const { actions, names } = useAnimations(animations, group);
 
@@ -19,6 +19,11 @@ function Modelling() {
 
   return (
     <div id="ModellingPage" style={{ backgroundImage: `url(${background})` }}>
+      <Link to="/">
+        <button type="button" id="ModelBack">
+          Back
+        </button>
+      </Link>
       <Navbar>
         <NavItem icon={head}>
           <DropdownMenu></DropdownMenu>
