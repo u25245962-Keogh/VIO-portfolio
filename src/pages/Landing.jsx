@@ -56,7 +56,11 @@ function Landing() {
       const scrollRangeStart = window.innerHeight * 3.5;
       const scrollRangeEnd =
         document.documentElement.scrollHeight - window.innerHeight;
-      const animationProgress = returningFromModelling ? 0.45 : 0.17;
+      const animationProgress = returningFromModelling
+        ? 0.37
+        : returningFromArt
+          ? 0.16
+          : 0.17;
       const scrollPosition =
         scrollRangeStart +
         (scrollRangeEnd - scrollRangeStart) * animationProgress;
