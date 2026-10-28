@@ -1,4 +1,4 @@
-import navSpeech from "../assets/navSpeech.png"
+import navSpeech from "../assets/navSpeech.webp"
 function DropdownMenu() {
     
     function DropdownItem(props) {

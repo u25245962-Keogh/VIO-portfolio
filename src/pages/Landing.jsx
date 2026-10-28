@@ -3,31 +3,31 @@ import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import head from "../assets/headLogo.png";
 //import silhouette from "../assets/silhouette.png"
-import shreyaChar from "../assets/Shreya-Front.png";
+import shreyaChar from "../assets/Shreya-Front.webp";
 import text from "../assets/textLogo.png";
 import "../styles/Landing.css";
 import "../styles/character.css";
-import silhouette from "../assets/silhouette - Copy.png";
+import silhouette from "../assets/silhouette - Copy.webp";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import road from "../assets/road.png";
 import spinShreya from "../assets/CharacterSpin.gif";
-import HelloThere from "../assets/HelloThere.png";
+import HelloThere from "../assets/HelloThere.webp";
 import BIS from "../assets/BISmmStudent.webp";
-import intro1 from "../assets/intro1.png";
-import intro2 from "../assets/intro2.png";
-import intro3 from "../assets/intro3.png";
-import intro4 from "../assets/intro4.png";
-import intro5 from "../assets/intro5.png";
-import shreyaWalking from "../assets/Shreya-Front.png";
+import intro1 from "../assets/intro1.webp";
+import intro2 from "../assets/intro2.webp";
+import intro3 from "../assets/intro3.webp";
+import intro4 from "../assets/intro4.webp";
+import intro5 from "../assets/intro5.webp";
+import shreyaWalking from "../assets/Shreya-Front.webp";
 import "../styles/Road.css";
 import RoadDecorations from "../assets/RoadDecorations.png";
 import ArtStall from "../assets/ArtStall.gif";
-import ArtSpeech1 from "../assets/StallExcl.png"
+import ArtSpeech1 from "../assets/StallExcl.webp"
 import ArtSpeech2 from "../assets/StallElip.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModellingStall from "../assets/ModellingStall.gif";
 import ScrollIndicator from "../assets/scrollIndicator.png"
-import outline from "../assets/outline.png";
+import outline from "../assets/outline.webp";
 import comic from "../assets/comicObject.png"
 
 
