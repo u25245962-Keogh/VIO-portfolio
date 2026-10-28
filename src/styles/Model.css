@@ -83,3 +83,26 @@
     gap: 24px;
     min-height: 0;
   }
+
+  #ModellingContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 40px 40px;
+    box-sizing: border-box;
+  }
+  
+  #ModelViewer {
+    flex: none;
+    margin-left: auto;
+    width: min(45vw, 80vh);
+    aspect-ratio: 1 / 1;       /* square */
+    height: auto;
+    border: 3px solid #fff;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
