@@ -1,0 +1,21 @@
+.comicPage{
+    width: 650px;
+
+}
+#comicDiv{
+    text-align: center;
+}
+
+#myComicP{
+    text-align: center;
+}
+#infographic-btn{
+    position: absolute;
+    z-index: 2;
+    transform: translate(800px,300px);
+}
+
+#infographic-btnn:hover{
+   cursor: pointer;
+    
+}

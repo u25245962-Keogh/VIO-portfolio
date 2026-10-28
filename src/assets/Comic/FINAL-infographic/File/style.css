@@ -1,0 +1,446 @@
+img#background{
+   
+
+   width: 100%;
+   margin-top: 200px;
+   min-height: 100%;
+   margin-top: 0%;
+}
+html {
+   background: linear-gradient(to bottom, #deedff, #c5d9e2, #bad3e2, #8cbadf, #5fa2dc, #286faf, #2068a8);
+  /* min-height: 100%;*/
+  background-attachment: fixed;  /* this stops it from tiling/repeating */
+   
+ }
+ html, body {
+   height: 100%;
+   margin: 0;
+ }
+
+/* Define the sliding away animation */
+@keyframes slideAwayLeft {
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideAwayRight {
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+#swirlsL {
+   position: fixed; 
+   z-index: 5;
+   top: 0; 
+   left: 0;
+  
+   
+   /* This links the movement to the scroll bar */
+   animation: slideAwayLeft linear both;
+   animation-timeline: scroll(root); 
+   animation-range: 0 1000px; 
+}
+#swirlsR {
+   position: fixed;
+   z-index: 5;
+   top: 0; 
+   right: 0;
+  
+   
+   animation: slideAwayRight linear both;
+   animation-timeline: scroll(root);
+   animation-range: 0 1000px;
+}
+
+#winds {
+   position: absolute;
+  left: 0%;
+  top: 50%;
+}
+
+img#wind1.is-visible {
+   opacity: 1;
+   transform: translateX(0); /* Slides back to its natural right: 2% position */
+}
+
+img#finleyPNG{
+ 
+    
+   position: absolute;
+    z-index: 3;
+    top: 87%;
+    left: 27%;
+    width: 33%;
+    
+ }
+
+ img#crack1{
+    position: absolute;
+    z-index: 3;
+    top: 186%;
+    left: 25%;
+
+    animation: reveal 2s ;
+    animation-timeline: view();
+ }
+
+ #Pins{
+ 
+    
+   position: absolute;
+    z-index: 3;
+    top: 274.4%;
+    left: 70%;
+  
+    width: 16.5%;
+
+
+    
+ }
+ 
+ img#starPins{
+ 
+    
+   position: absolute;
+    z-index: 4;
+    top: 282%;
+    left: 70%;
+  
+ width: 16.5%;
+ opacity: 0.1;
+    
+ }
+
+ img#starPins:hover{
+ 
+ 
+ opacity: 1;
+ cursor: pointer;
+
+    
+ }
+
+ img#backpack{
+ 
+    
+    position: absolute;
+     z-index: 2;
+     top: 266%; /*167*/
+     left: 46%;
+   
+     width: 47%;
+     
+  }
+
+  img#crackToMap{
+ 
+    
+   position: absolute;
+    z-index: 3;
+    top: 333.1%; /*167*/
+    left: 38%;
+  
+    width: 47%;
+
+
+    animation: reveal 2s ;
+    animation-timeline: view();
+    
+ }
+  
+
+  @keyframes reveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .scroll-reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 25% cover 50%; 
+    
+  }
+
+
+  img#map-open {
+   position: absolute;
+   z-index: 2;
+   top: 407%;
+   left: 10%;
+   width: 70%;
+   
+  
+   cursor: pointer; 
+   
+}
+img#freezing {
+   display: none;
+   position: absolute;
+   z-index: 2;
+   top: 401%;   /* same as map-open so it replaces it */
+   left: 10%;
+   cursor: default;
+   width: 70%;
+ }
+
+img#crackToHands{
+   position: absolute;
+   top: 498%;
+   z-index: 3;
+   left: 11%;
+   width: 50%;
+
+   animation: reveal 2s ;
+   animation-timeline: view();
+}
+
+img#hands{
+   position: absolute;
+   top: 570%;
+   z-index: 3;
+   left: 50%;
+   width: 50%;
+
+   
+}
+
+img#handExplain{
+   position: absolute;
+   top: 610%;
+   z-index: 3;
+   left: 25%;
+   width: 20%;
+
+   
+}
+
+img#crackToOrb{
+   position: absolute;
+   top: 690%;
+   z-index: 3;
+   
+   width: 30%;
+   animation: reveal 2s ;
+   animation-timeline: view();
+
+   
+}
+
+img#crackToPen{
+   position: absolute;
+   top: 900%;
+   z-index: 3;
+   left: 70%;
+   width: 30%;
+   animation: reveal 2s ;
+   animation-timeline: view();
+
+   
+}
+
+img#orb {
+   position: absolute;
+   top: 795%;
+   z-index: 4;
+   left: 40%;
+   width: 27%;
+   transition: transform 0.5s ease-out, opacity 0.4s ease-out;
+   box-shadow: none;
+
+   /* use drop-shadow for glow around actual pixels */
+   filter:
+     drop-shadow(0 0 40px rgba(255, 241, 45, 0.6))
+     drop-shadow(0 0 80px rgba(255, 241, 45, 0.35));
+     cursor: pointer;
+}
+img#FinWorb {
+   position: absolute;
+   top: 748%;
+   z-index: 3;
+   left: 21%;
+   width: 60%;
+}
+img#FinleyAbilty {
+   transition: opacity 1s ease 0.2s, filter 1.5s ease 0.2s;
+   filter: drop-shadow(0 0 0px rgba(180, 220, 255, 0)) drop-shadow(0 0 0px rgba(100, 180, 255, 0));
+   position: absolute;
+   top: 795%;
+   z-index: 3;
+   left: 34%;
+   width: 40%;
+}
+
+@keyframes orbRise {
+   from { 
+      transform: translateY(150px); 
+      opacity: 0; 
+   }
+   to { 
+      transform: translateY(0px); 
+      opacity: 1; 
+   }
+}
+#snowfall {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 130vh;  
+   z-index: 10 ;
+   pointer-events: none;
+   
+   clip-path: inset(0 0 0 0);
+ }
+.reveal-section {
+   height: 140vh;   
+   position: relative;
+}
+#ice{
+   z-index: 10;
+   width: 100%;
+   position: absolute;
+   pointer-events: none;
+   top: 82%;
+   left: 0%;
+}
+
+
+
+
+/* ice-melted sits exactly where ice sits */
+#ice-melted {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  top: 82%;
+  left: 0%;
+}
+
+/* light sits behind FinleyAbilty (lower z-index) */
+#FinleyLight {
+  position: absolute;
+  top: 790%;
+  z-index: 2;
+  left: 20%;
+  width: 60%;
+}
+
+@keyframes abilityGlow {
+  0%   { filter: drop-shadow(0 0 15px rgba(255, 242, 94, 0.7))  drop-shadow(0 0 40px rgba(80, 160, 255, 0.4)); }
+  50%  { filter: drop-shadow(0 0 35px rgb(255, 247, 20))  drop-shadow(0 0 80px rgba(100, 180, 255, 0.7)); }
+  100% { filter: drop-shadow(0 0 15px rgba(255, 238, 84, 0.7))  drop-shadow(0 0 40px rgba(80, 160, 255, 0.4)); }
+}
+
+img#FinleyAbilty.glowing {
+  animation: abilityGlow 5s ease-in-out infinite;
+}
+
+img#pen{
+   position: absolute;
+   top: 950%;
+   z-index: 2;
+   left: 20%;
+   cursor: pointer;
+  
+}
+/* ── Pen / ink styles ── */
+#penPress {
+  position: absolute;
+  top: 950%;
+  z-index: 2;
+  left: 18%;
+}
+
+#ink-spread {
+  display: none;
+  position: absolute;
+  top: 970%;   /* align with pen — adjust to taste */
+  z-index: 6;
+  left: 25%;
+  pointer-events: none;
+  width: 69%;
+}
+
+#ink {
+  position: absolute;
+  top: 970%;   /* align with pen — adjust to taste */
+  z-index: 5;
+  left: 25%;
+  opacity: 0;
+  width: 69%;
+   /* enabled via JS after gif ends */
+}
+img#inkHand{
+   position: absolute;
+  top: 1020%;   /* align with pen — adjust to taste */
+  z-index: 7;
+  left: 45%;
+  opacity: 0;
+  width: 8%;
+   animation: reveal 1s ;
+   animation-timeline: view();
+   pointer-events: none;
+   
+}
+
+/* Info images — all hidden by default, faded in via JS */
+
+ 
+ #inkInfo1 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 975%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 29%;
+   pointer-events: none;
+ }
+ #inkInfo3 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 988%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 40%;
+   width: 10%; pointer-events: none;
+ }
+
+ #inkInfo4 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 1012%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 46%; pointer-events: none;
+ }
+
+ #inkInfo5 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 1003%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 50%; pointer-events: none;
+ }
+
+ #inkInfo6 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 1014%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 39%; pointer-events: none;
+ }
+ #inkInfo7 {
+   position: absolute;
+   z-index: 4;
+   opacity: 0;
+
+   top: 1000%;   /* align with pen — adjust to taste */
+   z-index: 7;
+   left: 33%; pointer-events: none;
+ }

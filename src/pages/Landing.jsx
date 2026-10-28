@@ -26,7 +26,9 @@ import ArtSpeech1 from "../assets/StallExcl.png"
 import ArtSpeech2 from "../assets/StallElip.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModellingStall from "../assets/ModellingStall.gif";
-
+import ScrollIndicator from "../assets/ScrollIndicator.png"
+import outline from "../assets/outline.png";
+import comic from "../assets/comicObject.png"
 
 
 function Landing() {
@@ -107,6 +109,8 @@ function Landing() {
         <div id="textLogoDiv">
           <img src={text} id="textLogo"></img>
         </div>
+        <img src={ScrollIndicator} id="ScrollIndicator"></img>
+        {!spin && <img src={outline} id="outline" />}
         <div id="silhouetteDiv">
           {!replaceSil ? (
             <img src={silhouette} id="silhouetteCopy" />
@@ -147,6 +151,7 @@ function Landing() {
               />
             </div>
           )}
+          <img src={ScrollIndicator} id="ScrollIndicator2"></img>
         </div>
       </div>
       {isWalking ? (
@@ -167,6 +172,10 @@ function Landing() {
           <p></p>
         )}
       </div>
+
+      <Link to="/comic">
+        <img src={comic} id="comicObject"></img>
+      </Link>
 
       <div id="ModellingStallDiv" onClick={setModeClicked1}>
         <img src={ModellingStall} id="ModellingStall"></img>

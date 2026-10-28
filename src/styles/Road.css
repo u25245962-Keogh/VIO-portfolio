@@ -54,10 +54,7 @@
     
 }
 
-#shreyaOutside:hover{
-    filter: drop-shadow(0 0 5px rgba(248, 247, 246, 0.8));
-    cursor: pointer;
-}
+
 #road{
 
     position: relative;
@@ -117,3 +114,24 @@
     cursor: pointer;
     
 }
+#comicObject{
+    position: absolute;
+    transform: translate(-990px,3500px);
+    height: 300px;
+    z-index: 7;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.8));
+}
+
+#comicObject:hover{
+    cursor: pointer;
+    animation: glowPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(10px 10px 5px rgba(248, 247, 246, 0.8));
+    }
+    50% {
+        filter: drop-shadow(10px  10px 5px rgba(248, 247, 246, 0.171));
+    }
+  }
