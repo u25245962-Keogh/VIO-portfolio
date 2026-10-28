@@ -12,7 +12,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import road from "../assets/road.png";
 import spinShreya from "../assets/CharacterSpin.gif";
 import HelloThere from "../assets/HelloThere.png";
-import BIS from "../assets/BISmmStudent.png";
+import BIS from "../assets/BISmmStudent.webp";
 import intro1 from "../assets/intro1.png";
 import intro2 from "../assets/intro2.png";
 import intro3 from "../assets/intro3.png";
