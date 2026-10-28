@@ -1,5 +1,5 @@
 import HTMLFlipBook from "react-pageflip";
-import cover from "../assets/Comic/COVER.png";
+import cover from "../assets/Comic/COVER.webp";
 import page1 from "../assets/Comic/FINAL1.png";
 import page2 from "../assets/Comic/FINAL2.png";
 import page3 from "../assets/Comic/FINAL3.png";
@@ -46,7 +46,8 @@ function Component({
           <div className="page" key={page.id}>
             <div className="page-content">
               <div className="container">
-                <img src={page.image} className="comicPage" />
+                  
+                <img src={page.image} className="comicPage"  />
               </div>
             </div>
           </div>

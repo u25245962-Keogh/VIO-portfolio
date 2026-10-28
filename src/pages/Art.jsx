@@ -6,7 +6,7 @@ import NavItem from "../components/NavItem";
 import { Link } from "react-router-dom";
 import PolaroidLineCarousel from "../components/PolaroidLineCarousel";
 import "../styles/Art.css"
-import background from "../assets/ArtBackground.jpeg"
+import background from "../assets/ArtBackground.webp"
 
 import "../styles/font.css"
 function Art() {

@@ -6,7 +6,7 @@ import { Model } from "/Keogh_nighttime";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations } from "@react-three/drei";
 import "../styles/Model.css"
-import background from "../assets/ModellingBackground.jpeg"
+import background from "../assets/ModellingBackground.webp"
 import { Link } from "react-router-dom";
 function Modelling() {
   //const { actions, names } = useAnimations(animations, group);
