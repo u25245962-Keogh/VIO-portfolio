@@ -26,7 +26,27 @@
     position: fixed;
     z-index: 5;
   }
+#modelImade{
+  font-family:  "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 5em;
 
+  margin: 30px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+
+#PhotoGrid img {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
 
   #ModellingPage {
     position: relative;
@@ -41,4 +61,25 @@
     inset: 0;          /* top/right/bottom/left: 0 */
     width: 100%;
     height: 100%;
+  }
+
+  #PhotoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: 16px;
+  }
+  
+  #PhotoGrid img {
+    width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    
+  }
+
+  #ModellingInfo {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 0;
   }
