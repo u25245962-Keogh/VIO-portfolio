@@ -43,7 +43,8 @@ function Modelling() {
 
         <div id="ModelViewer">
           <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
-            <ambientLight intensity={5} />
+            <ambientLight intensity={1.5} color="#ffffff" />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
             <OrbitControls enableZoom={true} />
             <Model />
           </Canvas>
