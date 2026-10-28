@@ -26,7 +26,7 @@ import ArtSpeech1 from "../assets/StallExcl.png"
 import ArtSpeech2 from "../assets/StallElip.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModellingStall from "../assets/ModellingStall.gif";
-import ScrollIndicator from "../assets/ScrollIndicator.png"
+import ScrollIndicator from "../assets/scrollIndicator.png"
 import outline from "../assets/outline.png";
 import comic from "../assets/comicObject.png"
 
