@@ -27,52 +27,52 @@ function Art() {
       <PolaroidLineCarousel
         slides={[
           {
-            image: "/Bam.jpeg",
+            image: "/Bam.webp",
             title: "Crash",
             caption: "",
           },
           {
-            image: "/boom.jpeg",
+            image: "/boom.webp",
             title: "Boom",
             caption: "",
           },
           {
-            image: "/Krak.jpeg",
+            image: "/Krak.webp",
             title: "Bam",
             caption: "",
           },
           {
-            image: "/Pow.jpeg",
+            image: "/Pow.webp",
             title: "Krak",
             caption: "",
           },
           {
-            image: "/Joker.jpeg",
+            image: "/Joker.webp",
             title: "Joker illustration",
             caption: "",
           },
           {
-            image: "/Flash.jpeg",
+            image: "/Flash.webp",
             title: "The Flash and Captain Cold",
             caption: "",
           },
           {
-            image: "/Orchids.jpeg",
+            image: "/Orchids.webp",
             title: "Orchids Lino",
             caption: "",
           },
           {
-            image: "/sunflowers.jpeg",
+            image: "/sunflowers.webp",
             title: "Sunflowers",
             caption: "",
           },
           {
-            image: "/stillLife1.jpeg",
+            image: "/stillLife1.webp",
             title: "Still life",
             caption: "",
           },
           {
-            image: "/stillLife2.jpeg",
+            image: "/stillLife2.webp",
             title: "Another Still life",
             caption: "",
           },
