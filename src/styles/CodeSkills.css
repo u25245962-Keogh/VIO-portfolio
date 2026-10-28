@@ -1,0 +1,50 @@
+#CodeSkillsPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #5395bd;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#CodeSkillsPage > .navbar {
+  flex: 0 0 60px;
+}
+
+.SkillsHeader {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 24px;
+}
+
+.SkillsHeader h1 {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+}
+
+#CodeSkillsBack {
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #ff7300;
+  color: #fcb035;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.HammerArrow{
+  transition: transform 0.3s ease;
+}
+.HammerArrow:hover{
+  transform: scale(1.05) rotate(3deg) translateY(-5px) skewX(2deg);
+
+}

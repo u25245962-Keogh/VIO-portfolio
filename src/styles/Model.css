@@ -31,11 +31,13 @@
   font-weight: 400;
   font-style: normal;
   color: white;
-  font-size: 5em;
+  font-size: 3em;
 
   margin: 30px;
   margin-top: 50px;
   margin-left: 20px;
+  transform: translate(0px,42px);
+  width: 500px;
 }
 
 
@@ -43,7 +45,7 @@
   width: 300px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: 3px solid #fff;
+  border: 3px solid #191e49;
   box-sizing: border-box;
   margin-left: 20px;
 }
@@ -51,7 +53,6 @@
   #ModellingPage {
     position: relative;
     width: 100vw;
-    height: 100vh;
     background-size: cover;
     background-position: center;
   }
@@ -65,12 +66,12 @@
 
   #PhotoGrid {
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    gap: 16px;
+    grid-template-columns: repeat(2, 280px);
+    gap: 10px;
   }
   
   #PhotoGrid img {
-    width: 300px;
+    width: 280px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     
@@ -96,13 +97,14 @@
   }
   
   #ModelViewer {
+    transform: translate(0px,90px);
     flex: none;
     margin-left: auto;
     width: min(45vw, 80vh);
     aspect-ratio: 1 / 1;       /* square */
     height: auto;
-    border: 3px solid #fff;
-    border-radius: 16px;
+    border: 3px solid #191e49;
+    background-color: rgba(12, 21, 59, 0.651);
     box-sizing: border-box;
     overflow: hidden;
   }

@@ -29,6 +29,7 @@ import ModellingStall from "../assets/ModellingStall.gif";
 import ScrollIndicator from "../assets/scrollIndicator.png"
 import outline from "../assets/outline.webp";
 import comic from "../assets/comicObject.png"
+import HammerMachine from "../assets/HammerMachine.png"
 
 
 function Landing() {
@@ -41,7 +42,8 @@ function Landing() {
   const [spin, setSpin] = useState(returningFromSubpage);
   const [isWalking, setIsWalking] = useState(returningFromSubpage);
   const [ArtClicked, setArtClicked] = useState(false);
-  const [ModelClicked,setModelClicked] = useState(false)
+  const [ModelClicked, setModelClicked] = useState(false)
+  const [HammerClicked, setHammerClicked] = useState(false);
 
   const [ArtChange, setArtChange] = useState(ArtSpeech1);
   const hasInitializedScroll = useRef(false);
@@ -99,6 +101,10 @@ function Landing() {
   }
   function setModeClicked1() {
     setModelClicked(!ModelClicked);
+  }
+
+  function setHammerClicked1() {
+    setHammerClicked(!HammerClicked);
   }
   
 
@@ -189,6 +195,21 @@ function Landing() {
           </Link>
         ) : (
           <p></p>
+        )}
+      </div>
+
+      <div id="HammerDiv">
+        <img
+          src={HammerMachine}
+          id="HammerMachine"
+          onClick={setHammerClicked1}
+        ></img>
+        {HammerClicked ? (
+          <Link to="/CodeSkills">
+            <img src={ArtChange} className="HammerSpeech" />
+          </Link>
+        ) : (
+          <ul></ul>
         )}
       </div>
     </>

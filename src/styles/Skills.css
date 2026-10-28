@@ -1,0 +1,81 @@
+.SkillsCarousel {
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+}
+
+.SkillsSlide {
+  text-align: center;
+}
+
+.SkillPreview {
+  position: absolute;
+  top: calc(50% - 300px);
+  left: 8%;
+  width: min(220px, 22vw);
+  height: min(220px, 22vw);
+  object-fit: contain;
+}
+
+.Bar {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(100vh - 180px);
+  max-height: calc(100dvh - 180px);
+  object-fit: contain;
+}
+
+.SkillsArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.SkillsArrow img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.SkillsArrow:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.SkillsArrowPrevious {
+  left: 24px;
+}
+
+.SkillsArrowNext {
+  right: 24px;
+}
+
+@media (max-width: 600px) {
+  .SkillPreview {
+    left: 12px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .SkillsArrowPrevious {
+    left: 8px;
+  }
+
+  .SkillsArrowNext {
+    right: 8px;
+  }
+}

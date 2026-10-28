@@ -33,7 +33,7 @@ function Modelling() {
 
       <div id="ModellingContent">
         <section id="ModellingInfo">
-          <h1 id="modelImade">Here's a model I made</h1>
+          <h1 id="modelImade">An isometric room I modelled in Blender</h1>
           <div id="PhotoGrid">
             {photos.map((src, i) => (
               <img key={i} src={src} alt={`Model photo ${i + 1}`} />
@@ -45,6 +45,7 @@ function Modelling() {
           <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
             <ambientLight intensity={1.5} color="#ffffff" />
             <directionalLight position={[5, 5, 5]} intensity={2} />
+           
             <OrbitControls enableZoom={true} />
             <Model />
           </Canvas>
