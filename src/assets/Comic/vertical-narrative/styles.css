@@ -1,0 +1,932 @@
+﻿#comic{
+    position: relative;
+    width: 801.9px;
+    margin: 0 auto;
+    
+}
+
+img#intro{
+
+   
+    object-fit: cover;
+    z-index: 1;
+    width: 801.9px;
+}
+img#introBEHIND{
+    z-index: 10;
+    top: 0px;
+    margin: 0%;
+    width: 801.9px;
+}
+
+img#introText{
+
+   
+    object-fit: cover;
+    z-index: 2;
+    position:absolute;
+    top: 1350px;
+    left: 0.891px;
+
+    width: 801.9px;
+
+    animation-name: shiftUp;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+    
+    
+}
+
+@keyframes shiftUp {
+
+    /*left =5%*/
+    from {
+        opacity: 60%;
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        top: 1082.565px;
+    }
+}
+
+
+
+#yearsAgoText{
+    position:absolute;
+    top: 1900px;
+  
+    z-index: 3;
+width: 600px;
+
+    left: -0px;
+    animation-name: shiftRight;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+}
+
+@keyframes shiftRight {
+
+    /*left =5%*/
+    from {
+        opacity: 0%;
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        left: 10%;
+    }
+}
+
+
+
+
+#explosion{
+    position:absolute;
+    top: 1884.465px;
+    left: 0px;
+    z-index: 2;
+    width: 801.9px;
+}
+
+#underExplosion{
+    position:absolute;
+    top: 2255.344px;
+    left: 2.005px;
+    z-index: 3;
+    width: 801.9px;
+    
+}
+
+#scientist{
+    position:absolute;
+    top: 2525.985px;
+    left: 7.618px;
+    z-index: 3;
+    width: 561.33px;
+    
+}
+
+
+#transition{
+   position: relative;
+    top: 80;
+  z-index: 0;
+  width: 801.9px;
+  
+    
+}
+
+#MoreSwirls{
+    position: absolute;
+     top: 2766.555px;
+   
+     z-index: 3;
+     width: 800px;
+
+ }
+
+ #FinleySwirls{
+    position: absolute;
+     top: 3308.075px;
+    left: 200.475px;
+     z-index: 3;
+     width: 400.95px;
+    
+     animation-name: shiftUp5;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+
+ }
+
+ @keyframes shiftUp5 {
+
+    /*left =5%*/
+    from {
+        
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        top: 3508.075px;
+    }
+}
+
+
+ #ButInstead{
+    position: absolute;
+     top: 4089.69px;
+    left: 200.475px;
+     z-index: 3;
+     width: 400.95px;
+    
+     animation-name: shiftUp1;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 80%;
+ }
+
+ @keyframes shiftUp1 {
+
+    /*left =5%*/
+    from {
+        opacity: 0%;
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        top: 4009.5px;
+    }
+}
+
+#coldCity{
+    position: absolute;
+     top: 4223.34px;
+   
+     z-index: 4;   
+     width: 801.9px;
+ }
+
+ #UnderCity{
+    position: absolute;
+     top: 5212.35px;
+  width: 801.9px;
+     z-index: 3;
+          
+ }
+
+ #UpToMeFinley{
+    position: absolute;
+     top: 5573.205px;
+left: 280.665px;
+width: 280.665px;
+     z-index: 3;
+          
+ }
+
+ #UpToMe{
+    position: absolute;
+     top: 5533.11px;
+        left: 600px;
+
+     z-index: 3;
+     width: 160.38px;
+
+     animation-name: shiftLeft;
+     animation-duration: 1s;
+     animation-iteration-count: 1;
+     animation-fill-mode: forwards;
+     animation-timeline: view();
+     animation-range: 0% 100%;
+
+
+     
+          
+ }
+
+ @keyframes shiftLeft {
+
+   
+    from {
+        opacity: 0%;
+        transform: translate(0%);
+    }
+
+    to {
+        left: 450px;
+        opacity: 100%;
+      
+       
+    }
+}
+
+
+
+#backpackTransition{
+    position: absolute;
+     top: 6254.82px;
+      z-index: 4;
+      width: 801.9px;
+  }
+  #backpack{
+    position: absolute;
+     top: 6615.675px;
+      z-index: 5;
+      width: 400.95px;
+  }
+  #packEssentials{
+    position: absolute;
+     top: 6515.675px;
+      z-index: 5;
+      width: 300.76px;
+      left: 460.95px;
+      animation-name: fade;
+      animation-duration: 5s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timeline: view();
+      animation-range: 0% 100%;
+           
+  }
+  @keyframes fade {
+ 
+     /*left =5%*/
+     from {
+         opacity: 0%;
+     }
+ 
+     to {
+        opacity: 100%;
+     }
+ }
+
+ #zipGif{
+    position: absolute;
+    top: 6615.675px;
+    z-index: 5;
+    width: 320.76px;
+    left: 50.95px;
+     visibility: hidden;
+ }
+
+ #walkingBackground{
+    position: absolute;
+     top: 7337.385px;
+  z-index: 6;
+  width: 801.9px;
+     
+  }
+/*                                               !!!!!!!!! ADD FINLEY WALKING AND STYFF ~!!!!!!!!!!!!*/
+
+ #walkingFinley{
+    position: relative;
+     bottom: 5346px;
+  z-index: 8;
+  width: 891px;
+ 
+     
+  }
+
+  #newCity{
+    position: absolute;
+     top: 8379.855px;
+  z-index: 6;
+  width: 801.9px;
+    
+  }
+  #behindBridge{
+    position: absolute;
+     top: 9342.135px;
+  z-index: 5;
+  width: 801.9px;
+    
+  }
+
+  #KRAK{
+    position: absolute;
+     top: 9542.61px;
+  z-index: 5;
+  width: 801.9px;
+    
+  }
+
+  #snow{
+    position: absolute;
+    top: 9542.61px;
+    z-index: 6;
+    width: 850px;
+  left: 10px;
+    
+  }
+
+  #clouds{
+    position: absolute;
+     top: 9302.04px;
+  z-index: 5;
+  width: 801.9px;
+    
+  }
+  #cityFromFar{
+    position: absolute;
+     top: 10605.128px;
+  z-index: 6;
+  width: 801.9px;
+    
+  }
+  #backOfFinley{
+    position: absolute;
+     top: 11427.075px;
+  z-index: 6;
+  left: 681.17px;
+  width: 120.285px;
+
+    
+  }
+  #sky{
+    position: absolute;
+     top: 11836.044px;
+     z-index: 4;
+     width: 801.9px;
+  }
+  #DropWoodSnow{
+    position: absolute;
+     top: 12670.02px;
+     z-index: 6;
+     width: 801.9px;
+  }
+
+  #finDropWood{
+    position: absolute;
+     top: 10825.65px;
+     z-index: 7;
+     left: 160.38px;
+     width: 481.14px;
+    
+  }
+
+  #cave{
+    position: absolute;
+     top: 13740.556px;
+     z-index: 4;
+   width: 801.9px;
+    
+    
+  }
+
+  #fireCave{
+    position: absolute;
+     top: 16012.606px;
+     z-index: 4;
+   width: 801.9px;
+    
+    
+  }
+
+  #fireFinley{
+    position: absolute;
+     top: 16465.68px;
+     z-index: 6;
+     width: 340.808px;
+     left: 290.665px;
+    
+  }
+
+  #lastHope{
+    position: absolute;
+     top: 16445.632px;
+     z-index: 6;
+     width: 160.38px;
+     left: 453.074px;
+    
+  }
+#map{
+    position: absolute;
+    top: 17047.058px;
+    width: 801.9px;
+    z-index: 6;
+}
+#theEquator{
+    position: absolute;
+    top: 17287.628px;
+   width: 178.2px;
+    z-index: 6;
+    left: 534.6px;
+
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+}
+
+#fire{
+    position: absolute;
+    top: 16661.7px;
+    left: 427.68px;
+    width: 445.5px;
+    z-index: 6;
+}
+#JungleIntro{
+    position: absolute;
+    top: 17664.075px;
+    z-index: 5;
+    width: 801.9px;
+   
+}
+
+#FinleyJungleIntro{
+    position: absolute;
+    top: 18688.725px;
+    z-index: 6;
+    width: 356.4px;
+    left: 222.75px;
+}
+
+#WeeksLater{
+    position: absolute;
+    top: 17819.555px;
+    z-index: 6;
+    left: 400.95px;
+    width: 178.2px;
+    
+    animation-name: shiftRight1;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+    
+}
+
+@keyframes shiftRight1 {
+
+    
+    from {
+        opacity: 50%;
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        left: 3%;
+    }
+}
+
+#FoundOrb{
+    position: absolute;
+    top: 19156.055px;
+    z-index: 6;
+    width: 801.9px;
+}
+#HereItIs{
+    position: absolute;
+    top: 19467.904px;
+    z-index: 8;
+    width: 178.2px;
+    left: 133.65px;
+}
+
+#bushes{
+    position: absolute;
+    top: 19824.305px;
+    z-index: 6;
+    width: 801.9px;
+}
+
+#memoryBush{
+    position: absolute;
+    top: 20403.454px;
+    z-index: 6;
+    width: 801.9px;
+}
+
+#memoryBubble{
+    position: absolute;
+    top: 20670.754px;
+    z-index: 6;
+    left:301px; 
+    width: 500px;
+    animation-name: fade;
+    animation-duration: 30s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 70%;
+    
+}
+
+#mem1{
+    position: absolute;
+    top: 20690.754px;
+    z-index: 6;
+    left:405.405px; 
+    width: 500px;
+
+    animation-name: fade;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+    
+}
+#mem2{
+    position: absolute;
+    top: 20670.754px;
+    z-index: 6;
+    left:360.855px; 
+    width:500px;
+    animation-name: fade;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+    
+}
+#mem3{
+    position: absolute;
+    top: 20690.754px;
+    z-index: 6;
+    left:260.755px; 
+    width: 500px;
+    animation-name: fade;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+    
+}
+
+
+#head1{
+    position: absolute;
+    top: 20990.6px;
+    z-index: 6;
+    left:100.2px;
+    width: 250px;
+}
+
+
+#head2{
+    position: absolute;
+    top: 21394.9px;
+    z-index: 6;
+    left:400.95px;
+    width: 250px;
+}
+
+#hmmCold{
+    position: absolute;
+    top: 21150.6px;
+    z-index: 6;
+    left:10.92px;
+    width: 111.375px;
+    animation-name: shiftRight1;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+}
+
+#LivesInMe{
+    position: absolute;
+    top: 21430.99px;
+    z-index: 6;
+    right: 0px;
+    width: 400.375px;
+    animation-name: shiftLeft1;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 0% 100%;
+   
+}
+
+@keyframes shiftLeft1 {
+
+    
+    from {
+        opacity: 50%;
+        transform: translate(0%);
+    }
+
+    to {
+        opacity: 100%;
+        right: 5%;
+        
+    }
+}
+
+#moreLeaves{
+    position: absolute;
+    top: 21700.305px;
+    z-index: 6;
+    right:0px;
+    width: 801.9px;
+  
+   
+}
+
+#OrbIKnow{
+    position: absolute;
+    top: 22145.805px;
+    z-index: 6;
+    left: 222.75px;
+    width: 351.945px;
+  
+   
+}
+
+#HandsOut{
+    position: absolute;
+    top: 22234.905px;
+    z-index: 6;
+    
+    width: 801.9px;
+  
+   
+}
+
+#NeedToDo{
+    position: absolute;
+    top: 21923.055px;
+    z-index: 6;
+    
+  left: 267.3px;
+    width: 267.3px;
+   
+}
+#darkBlue{
+    position: absolute;
+    top: 22546.755px;
+    z-index: 5;
+  
+    width: 801.9px;
+   
+}
+
+#THRING{
+    position: absolute;
+    top: 18764.014px;
+    z-index: 6;
+    width: 801.9px;
+    left: 89.1px;
+   
+}
+
+#pt4{
+    position: absolute;
+    top: 22546.755px;
+    z-index: 2;
+    width: 801.9px;
+
+    
+
+
+}
+
+#headDown{
+    position: absolute;
+    top: 23125.905px;
+    z-index: 3;
+    width: 579.15px;
+    left: 89.1px;
+
+}
+
+#frontBush{
+    position: absolute;
+    top: 23571.405px;
+    z-index: 3;
+    width: 801.9px;
+   
+}
+#pt4Leaves{
+    position: absolute;
+    top: 23771.405px;
+    z-index: 2;
+    width: 790.9px;
+}
+
+
+#eughFinley{
+    position: absolute;
+    top: 24190.65px;
+    z-index: 2;
+    width: 801px;
+}
+
+#EUAGH{
+    position: absolute;
+    top: 24590.65px;
+    z-index: 2;
+    left: 465.5px;
+    width: 190.2px;
+}
+
+#earth{
+    position: absolute;
+    top: 25600.095px;
+    z-index: 2;
+    left: 250px;
+    width: 300px;
+  
+   
+}
+#shrou{
+    position: absolute;
+    top: 25779.095px;
+    z-index: 5;
+    width: 430px;
+     left: 230px;
+   
+}
+
+
+
+
+#WarmCity{
+    position: absolute;
+    top: 26291.895px;
+    z-index: 5;
+    width: 801.1px;
+  
+  
+}
+
+#dirt{
+    position: absolute;
+    top: 27123.983px;
+    z-index: 5;
+    width: 870.1px;
+  
+}
+
+#warmFin{
+    position: absolute;
+    top: 27103.983px;
+    z-index: 6;
+  width: 801px;
+
+  
+
+    
+}
+
+#gave{
+    position: absolute;
+    top: 28220.555px;
+    z-index: 6;
+    left: 300px;
+
+  
+}
+
+
+#sprout{
+    position: absolute;
+    top: 30979.77px;
+    z-index: 6;
+
+    width: 801px;
+  
+}
+
+#bloom{
+    position: absolute;
+    top: 30889.77px;
+    z-index: 6;
+    left: 200px;
+
+
+  
+}
+
+#comic > #introText,
+
+#comic > #explosion,
+#comic > #underExplosion,
+
+#comic > #MoreSwirls,
+#comic > #FinleySwirls,
+
+#comic > #coldCity,
+#comic > #UnderCity,
+#comic > #UpToMeFinley,
+
+#comic > #backpackTransition,
+#comic > #backpack,
+ 
+#comic > #walkingBackground,
+#comic > #newCity,
+#comic > #behindBridge,
+#comic > #KRAK,
+#comic > #clouds,
+#comic > #cityFromFar,
+ 
+#comic > #sky,
+#comic > #DropWoodSnow,
+#comic > #finDropWood,
+#comic > #cave,
+#comic > #fireCave,
+
+ 
+#comic > #map,
+ 
+ 
+#comic > #JungleIntro,
+#comic > #FinleyJungleIntro,
+ 
+ 
+ 
+#comic > #bushes,
+ 
+#comic > #moreLeaves,
+#comic > #OrbIKnow,
+#comic > #HandsOut,
+ 
+#comic > #darkBlue,
+ 
+#comic > #pt4,
+#comic > #headDown,
+#comic > #frontBush,
+#comic > #pt4Leaves,
+#comic > #eughFinley
+ 
+ {
+    left: 50%;
+    right: auto;
+    margin-left: 0;
+    translate: -50% 0;
+}
+
+#comic > #intro,
+#comic > #introBEHIND,
+#comic > #transition,
+#comic > #walkingFinley {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+
+    
+    
+body{
+    background-color: #b7c1ea;
+
+   margin: 0px;
+   overflow-x: hidden;
+    padding: 0px;
+    
+   
+  }
+
