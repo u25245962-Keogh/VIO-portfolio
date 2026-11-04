@@ -17,7 +17,7 @@ function Art() {
           <DropdownMenu></DropdownMenu>
         </NavItem>
       </Navbar>
-      <Link to="/" state={{ fromArt: true }}>
+      <Link to="/" state={{ returnToLanding: true }}>
         <button type="button" id="ArtBack">
           Back
         </button>

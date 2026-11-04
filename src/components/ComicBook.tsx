@@ -26,7 +26,7 @@ function Component({
   ];
 
   return (
-    <div style={{ position: "relative", zIndex: 0 }}>
+    <div className="comic-book-wrapper" style={{ position: "relative", zIndex: 0 }}>
       <HTMLFlipBook
         width={650}
         height={900}

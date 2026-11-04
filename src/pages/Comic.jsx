@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import head from "../assets/headLogo.png";
+import learnMore from "../assets/learnMore.png"
 import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
@@ -13,7 +14,7 @@ function Comic() {
 
   return (
     <>
-      <Link to="/" state={{ fromModelling: true }}>
+      <Link to="/" state={{ returnToLanding: true }}>
         <button type="button" id="ModelBack">
           Back
         </button>
@@ -35,7 +36,7 @@ function Comic() {
         }}
       >
         <button type="button" id="infographic-btnn">
-          <img alt="Infographic" src={head} width="220" />
+          <img alt="Infographic" src={learnMore} width="220" />
         </button>
       </Link>
 

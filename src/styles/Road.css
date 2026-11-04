@@ -152,6 +152,49 @@ position: absolute;
     }
 
 
+    #contactPost{
+        height: 1190px;
+        transform: translate(400px,-2000px);
+        position: absolute;
+        z-index: 10;
+    }
+    #postEmail{
+        height: 90px;
+        transform: translate(1100px,-1789px);
+        position: absolute;
+        z-index: 11;
+
+        transition: transform 0.3s ease;
+       
+    }
+   
+    #postGithub{
+        height: 90px;
+        position: absolute;
+        z-index: 11;
+        transform: translate(1130px,-1530px);
+      
+    }
+    #postLinkedin{
+        height: 75px;
+        transform: translate(1350px,-1670px);
+        position: absolute;
+        z-index: 11;
+    }
+
+ 
+   
+        #postEmail:hover,#postGithub:hover,#postLinkedin:hover {
+          
+          filter: drop-shadow(10px 10px 5px rgba(2, 43, 33, 0.8));
+        }
+    .contactLinks{
+        position: absolute;
+        z-index: 12;
+    }
+   
+
+
 @keyframes glowPulse {
     0%, 100% {
         filter: drop-shadow(10px 10px 5px rgba(248, 247, 246, 0.8));

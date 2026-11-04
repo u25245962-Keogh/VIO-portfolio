@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import H90 from "../assets/Hammer90.png";
 import H80 from "../assets/Hammer80.png";
 import H70 from "../assets/Hammer70.png";
-import H60 from "../assets/Hammer60.png";
+import H60 from "../assets/Hammer60.gif";
 import LeftHammer from "../assets/LeftHammer.png";
 import RightHammer from "../assets/RightHammer.png";
 import "../styles/Skills.css";
@@ -44,7 +44,7 @@ function CodeSKills() {
         </NavItem>
       </Navbar>
       <header className="SkillsHeader">
-        <Link to="/">
+        <Link to="/" state={{ returnToLanding: true }}>
           <button type="button" id="CodeSkillsBack">
             Back
           </button>

@@ -2,6 +2,11 @@
     width: 650px;
 
 }
+.comic-book-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 #comicDiv{
     text-align: center;
 }

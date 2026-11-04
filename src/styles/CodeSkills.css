@@ -24,6 +24,10 @@
   gap: 8px;
   padding: 8px 24px;
 }
+.Bar{
+  transform: translate(0,3px);
+
+}
 
 .SkillsHeader h1 {
   margin: 0;

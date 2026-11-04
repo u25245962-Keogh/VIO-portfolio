@@ -30,6 +30,10 @@ import ScrollIndicator from "../assets/scrollIndicator.png"
 import outline from "../assets/outline.webp";
 import comic from "../assets/comicObject.png"
 import HammerMachine from "../assets/HammerMachine.png"
+import contactPost from "../assets/contactPost.png"
+import email from "../assets/postEmail.png"
+import github from "../assets/postGithub.png";
+import linkedin from "../assets/postLinkedin.png";
 
 
 function Landing() {
@@ -37,7 +41,13 @@ function Landing() {
   const navigate = useNavigate();
   const returningFromArt = location.state?.fromArt === true;
   const returningFromModelling = location.state?.fromModelling === true;
-  const returningFromSubpage = returningFromArt || returningFromModelling;
+  const returningFromCodeSkills = location.state?.fromCodeSkills === true;
+  const returningToLanding = location.state?.returnToLanding === true;
+  const returningFromSubpage =
+    returningFromArt ||
+    returningFromModelling ||
+    returningFromCodeSkills ||
+    returningToLanding;
   const [replaceSil, setReplaceSil] = useState(returningFromSubpage);
   const [spin, setSpin] = useState(returningFromSubpage);
   const [isWalking, setIsWalking] = useState(returningFromSubpage);
@@ -55,32 +65,55 @@ function Landing() {
     hasInitializedScroll.current = true;
 
     if (returningFromSubpage) {
-      const scrollRangeStart = window.innerHeight * 3.5;
-      const scrollRangeEnd =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const animationProgress = returningFromModelling
-        ? 0.37
-        : returningFromArt
-          ? 0.16
-          : 0.17;
-      const scrollPosition =
-        scrollRangeStart +
-        (scrollRangeEnd - scrollRangeStart) * animationProgress;
+      const savedScrollValue = sessionStorage.getItem("landingScrollY");
+      const savedScrollPosition =
+        savedScrollValue === null ? undefined : Number(savedScrollValue);
+      let scrollPosition = Number.isFinite(savedScrollPosition)
+        ? savedScrollPosition
+        : undefined;
+
+      if (scrollPosition === undefined) {
+        const scrollRangeStart = window.innerHeight * 3.5;
+        const scrollRangeEnd =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const animationProgress = returningFromModelling
+          ? 0.37
+          : returningFromArt
+            ? 0.16
+            : 0.17;
+        scrollPosition =
+          scrollRangeStart +
+          (scrollRangeEnd - scrollRangeStart) * animationProgress;
+      }
 
       window.scrollTo(0, Math.max(0, scrollPosition));
       navigate(location.pathname, { replace: true, state: null });
     } else {
       window.scrollTo(0, 0);
     }
-  }, [location.pathname, navigate, returningFromModelling, returningFromSubpage]);
+  }, [
+    location.pathname,
+    location.state,
+    navigate,
+    returningFromArt,
+    returningFromCodeSkills,
+    returningFromModelling,
+    returningFromSubpage,
+  ]);
 
   useEffect(() => {
+    function saveScrollPosition() {
+      sessionStorage.setItem("landingScrollY", String(window.scrollY));
+    }
+
     function handleScroll() {
+      saveScrollPosition();
       if (window.scrollY > 850) {
         setReplaceSil(true);
       }
     }
 
+    saveScrollPosition();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -106,7 +139,7 @@ function Landing() {
   function setHammerClicked1() {
     setHammerClicked(!HammerClicked);
   }
-  
+
 
   return (
     <>
@@ -211,6 +244,23 @@ function Landing() {
         ) : (
           <ul></ul>
         )}
+      </div>
+
+      <div id="contactDiv">
+        <img src={contactPost} id="contactPost"></img>
+
+        <a href="mailto:keogh.sa@tuks.co.za" className="contactLinks">
+          <img src={email} id="postEmail"></img>
+        </a>
+
+        <a href="https://github.com/u25245962-Keogh">
+          <img src={github} id="postGithub"></img>
+        </a>
+
+        <a href="https://www.linkedin.com/in/shreya-keogh-43019a441">
+          <img src={linkedin} id="postLinkedin"></img>
+        </a>
+
       </div>
     </>
   );

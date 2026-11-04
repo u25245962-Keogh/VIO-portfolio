@@ -20,7 +20,7 @@ const photos = [photo1, photo2, photo3, photo4];
 function Modelling() {
   return (
     <div id="ModellingPage" style={{ backgroundImage: `url(${background})` }}>
-      <Link to="/" state={{ fromModelling: true }}>
+      <Link to="/" state={{ returnToLanding: true }}>
         <button type="button" id="ModelBack">
           Back
         </button>
