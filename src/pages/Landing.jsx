@@ -219,7 +219,7 @@ function Landing() {
         }),
       );
     } catch {
-      // storage unavailable (private mode etc.) - ignore
+      
     }
   }, [
     replaceSil,
@@ -231,7 +231,6 @@ function Landing() {
     bubblesGone,
   ]);
 
-  // Called right before leaving for another page, so the saved scroll is exact.
   function saveLandingScroll() {
     sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
   }
