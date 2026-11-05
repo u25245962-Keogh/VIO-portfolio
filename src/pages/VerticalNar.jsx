@@ -91,19 +91,35 @@ function VerticalNar() {
           </NavItem>
         </Navbar>
       </div>
-      <Link
-        to="/Infographic"
+      <div
         style={{
           position: "fixed",
           left: "25px",
           top: "25px",
           zIndex: 1001,
+          display: "flex",
+          gap: "12px",
         }}
       >
-        <button type="button" className="modelBackButton" id="vert-btn">
-          Back
-        </button>
-      </Link>
+        <Link to="/Infographic">
+          <button
+            type="button"
+            className="modelBackButton"
+            style={{ margin: 0 }}
+          >
+            Back
+          </button>
+        </Link>
+        <Link to="/" state={{ returnToLanding: true }}>
+          <button
+            type="button"
+            className="modelBackButton"
+            style={{ margin: 0 }}
+          >
+            Home
+          </button>
+        </Link>
+      </div>
      
     </div>
   );
