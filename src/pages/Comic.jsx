@@ -14,7 +14,7 @@ function Comic() {
 
   return (
     <>
-      <Link to="/" state={{ returnToLanding: true }}>
+      <Link to="/" state={{ fromComic: true }}>
         <button type="button" id="ModelBack">
           Back
         </button>

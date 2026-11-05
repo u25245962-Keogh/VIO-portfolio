@@ -22,23 +22,52 @@ import shreyaWalking from "../assets/Shreya-Front.webp";
 import "../styles/Road.css";
 import RoadDecorations from "../assets/RoadDecorations.png";
 import ArtStall from "../assets/ArtStall.gif";
-import ArtSpeech1 from "../assets/StallExcl.webp"
+import ArtSpeech1 from "../assets/StallExcl.webp";
 import ArtSpeech2 from "../assets/StallElip.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModellingStall from "../assets/ModellingStall.gif";
-import ScrollIndicator from "../assets/scrollIndicator.png"
+import ScrollIndicator from "../assets/scrollIndicator.png";
 import outline from "../assets/outline.webp";
-import comic from "../assets/comicObject.png"
-import HammerMachine from "../assets/HammerMachine.png"
-import contactPost from "../assets/contactPost.png"
-import email from "../assets/postEmail.png"
+import comic from "../assets/comicObject.png";
+import HammerMachine from "../assets/HammerMachine.png";
+import contactPost from "../assets/contactPost.png";
+import email from "../assets/postEmail.png";
 import github from "../assets/postGithub.png";
 import linkedin from "../assets/postLinkedin.png";
 
+const UI_KEY = "landingUI";
+const SCROLL_KEY = "landingScrollY";
+
+// Read the UI state saved when the user last left / interacted with the landing page.
+function loadSavedUI() {
+  try {
+    const raw = sessionStorage.getItem(UI_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+// The page is very tall and full of images that load late, so a single
+// window.scrollTo() often gets clamped to a too-short document.
+// Keep retrying every frame until the scroll position actually sticks.
+function restoreScroll(target) {
+  let tries = 0;
+  function attempt() {
+    window.scrollTo(0, target);
+    if (Math.abs(window.scrollY - target) > 2 && tries++ < 180) {
+      requestAnimationFrame(attempt);
+    }
+  }
+  attempt();
+}
 
 function Landing() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Legacy router-state flags (still honoured as a fallback, e.g. if the user
+  // arrived at a subpage directly and the landing page was never visited).
   const returningFromArt = location.state?.fromArt === true;
   const returningFromModelling = location.state?.fromModelling === true;
   const returningFromCodeSkills = location.state?.fromCodeSkills === true;
@@ -48,98 +77,144 @@ function Landing() {
     returningFromModelling ||
     returningFromCodeSkills ||
     returningToLanding;
-  const [replaceSil, setReplaceSil] = useState(returningFromSubpage);
-  const [spin, setSpin] = useState(returningFromSubpage);
-  const [isWalking, setIsWalking] = useState(returningFromSubpage);
-  const [ArtClicked, setArtClicked] = useState(false);
-  const [ModelClicked, setModelClicked] = useState(false)
-  const [HammerClicked, setHammerClicked] = useState(false);
+
+  // Read saved state once, on first render only.
+  const [saved] = useState(loadSavedUI);
+
+  const [replaceSil, setReplaceSil] = useState(
+    saved?.replaceSil ?? returningFromSubpage,
+  );
+  const [spin, setSpin] = useState(saved?.spin ?? returningFromSubpage);
+  const [isWalking, setIsWalking] = useState(
+    saved?.isWalking ?? returningFromSubpage,
+  );
+  const [ArtClicked, setArtClicked] = useState(saved?.ArtClicked ?? false);
+  const [ModelClicked, setModelClicked] = useState(
+    saved?.ModelClicked ?? false,
+  );
+  const [HammerClicked, setHammerClicked] = useState(
+    saved?.HammerClicked ?? false,
+  );
 
   const [ArtChange, setArtChange] = useState(ArtSpeech1);
-  const hasInitializedScroll = useRef(false);
 
+  // Tallest document height seen so far. Used to ignore the scroll events the
+  // browser fires when it clamps the scroll position as we navigate away.
+  const maxHeightRef = useRef(0);
+
+  // Stop the browser from fighting our own scroll restoration.
+  useEffect(() => {
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    return () => {
+      window.history.scrollRestoration = previous;
+    };
+  }, []);
+
+  // Restore the scroll position (or start at the top on a fresh visit).
   useLayoutEffect(() => {
-    if (hasInitializedScroll.current) {
-      return;
-    }
-    hasInitializedScroll.current = true;
+    const savedY = sessionStorage.getItem(SCROLL_KEY);
+    const hasSavedY = savedY !== null && Number.isFinite(Number(savedY));
 
-    if (returningFromSubpage) {
-      const savedScrollValue = sessionStorage.getItem("landingScrollY");
-      const savedScrollPosition =
-        savedScrollValue === null ? undefined : Number(savedScrollValue);
-      let scrollPosition = Number.isFinite(savedScrollPosition)
-        ? savedScrollPosition
-        : undefined;
-
-      if (scrollPosition === undefined) {
-        const scrollRangeStart = window.innerHeight * 3.5;
-        const scrollRangeEnd =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const animationProgress = returningFromModelling
-          ? 0.37
-          : returningFromArt
-            ? 0.16
-            : 0.17;
-        scrollPosition =
+    if (saved && hasSavedY) {
+      restoreScroll(Number(savedY));
+    } else if (returningFromSubpage) {
+      // No saved position: estimate from where each subpage's stall sits.
+      const scrollRangeStart = window.innerHeight * 3.5;
+      const scrollRangeEnd =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const animationProgress = returningFromModelling
+        ? 0.37
+        : returningFromArt
+          ? 0.16
+          : 0.17;
+      restoreScroll(
+        Math.max(
+          0,
           scrollRangeStart +
-          (scrollRangeEnd - scrollRangeStart) * animationProgress;
-      }
-
-      window.scrollTo(0, Math.max(0, scrollPosition));
-      navigate(location.pathname, { replace: true, state: null });
+            (scrollRangeEnd - scrollRangeStart) * animationProgress,
+        ),
+      );
     } else {
       window.scrollTo(0, 0);
     }
-  }, [
-    location.pathname,
-    location.state,
-    navigate,
-    returningFromArt,
-    returningFromCodeSkills,
-    returningFromModelling,
-    returningFromSubpage,
-  ]);
 
-  useEffect(() => {
-    function saveScrollPosition() {
-      sessionStorage.setItem("landingScrollY", String(window.scrollY));
+    // Clear any leftover router state so it doesn't linger in history.
+    if (location.state) {
+      navigate(location.pathname, { replace: true, state: null });
     }
+    // Run once on mount only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  // Track scroll: remember position, and swap the silhouette once scrolled far enough.
+  useEffect(() => {
     function handleScroll() {
-      saveScrollPosition();
+      const height = document.documentElement.scrollHeight;
+      if (height > maxHeightRef.current) {
+        maxHeightRef.current = height;
+      }
+
+      // Only save while the full-height landing page is on screen. When we
+      // navigate away the document shrinks and the browser clamps scrollY,
+      // which would otherwise overwrite the good value.
+      if (height >= maxHeightRef.current * 0.9) {
+        sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+      }
+
       if (window.scrollY > 850) {
         setReplaceSil(true);
       }
     }
 
-    saveScrollPosition();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function changeArtSpeech(){
-    setArtChange(ArtSpeech2)
-    console.log("asdasdaa")
+  // Persist UI state whenever it changes, so it survives navigation
+  // (including the browser Back button).
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(
+        UI_KEY,
+        JSON.stringify({
+          replaceSil,
+          spin,
+          isWalking,
+          ArtClicked,
+          ModelClicked,
+          HammerClicked,
+        }),
+      );
+    } catch {
+      // storage unavailable (private mode etc.) - ignore
+    }
+  }, [replaceSil, spin, isWalking, ArtClicked, ModelClicked, HammerClicked]);
 
+  // Called right before leaving for another page, so the saved scroll is exact.
+  function saveLandingScroll() {
+    sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+  }
+
+  function changeArtSpeech() {
+    setArtChange(ArtSpeech2);
   }
 
   function startSpin() {
     setSpin(true);
   }
 
-  function setArtClicked1(){
+  function toggleArt() {
     setArtClicked(!ArtClicked);
-    console.log(ArtClicked)
   }
-  function setModeClicked1() {
+
+  function toggleModel() {
     setModelClicked(!ModelClicked);
   }
 
-  function setHammerClicked1() {
+  function toggleHammer() {
     setHammerClicked(!HammerClicked);
   }
-
 
   return (
     <>
@@ -205,10 +280,16 @@ function Landing() {
 
       <img src={road} id="road"></img>
 
-      <div id="ArtStallDiv" onClick={setArtClicked1}>
+      <div id="ArtStallDiv" onClick={toggleArt}>
         <img src={ArtStall} id="ArtStall"></img>
         {ArtClicked ? (
-          <Link to="/art" onClick={(event) => event.stopPropagation()}>
+          <Link
+            to="/art"
+            onClick={(event) => {
+              event.stopPropagation();
+              saveLandingScroll();
+            }}
+          >
             <img src={ArtChange} className="ArtSpeech" />
           </Link>
         ) : (
@@ -216,14 +297,20 @@ function Landing() {
         )}
       </div>
 
-      <Link to="/comic">
+      <Link to="/comic" onClick={saveLandingScroll}>
         <img src={comic} id="comicObject"></img>
       </Link>
 
-      <div id="ModellingStallDiv" onClick={setModeClicked1}>
+      <div id="ModellingStallDiv" onClick={toggleModel}>
         <img src={ModellingStall} id="ModellingStall"></img>
         {ModelClicked ? (
-          <Link to="/Modelling">
+          <Link
+            to="/Modelling"
+            onClick={(event) => {
+              event.stopPropagation();
+              saveLandingScroll();
+            }}
+          >
             <img src={ArtChange} className="ModelSpeech" />
           </Link>
         ) : (
@@ -235,10 +322,10 @@ function Landing() {
         <img
           src={HammerMachine}
           id="HammerMachine"
-          onClick={setHammerClicked1}
+          onClick={toggleHammer}
         ></img>
         {HammerClicked ? (
-          <Link to="/CodeSkills">
+          <Link to="/CodeSkills" onClick={saveLandingScroll}>
             <img src={ArtChange} className="HammerSpeech" />
           </Link>
         ) : (
@@ -260,7 +347,6 @@ function Landing() {
         <a href="https://www.linkedin.com/in/shreya-keogh-43019a441">
           <img src={linkedin} id="postLinkedin"></img>
         </a>
-
       </div>
     </>
   );
