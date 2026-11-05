@@ -37,6 +37,9 @@ import linkedin from "../assets/postLinkedin.png";
 
 const UI_KEY = "landingUI";
 const SCROLL_KEY = "landingScrollY";
+// Once the user scrolls past this many pixels, the intro bubbles are removed for good.
+// Tune this to wherever the bubbles finish in your animation.
+const BUBBLES_HIDE_SCROLL_Y = 2500;
 
 // Read the UI state saved when the user last left / interacted with the landing page.
 function loadSavedUI() {
@@ -95,6 +98,8 @@ function Landing() {
   const [HammerClicked, setHammerClicked] = useState(
     saved?.HammerClicked ?? false,
   );
+
+  const [bubblesGone, setBubblesGone] = useState(saved?.bubblesGone ?? false);
 
   const [ArtChange, setArtChange] = useState(ArtSpeech1);
 
@@ -165,6 +170,11 @@ function Landing() {
       if (window.scrollY > 850) {
         setReplaceSil(true);
       }
+
+      // Scrolled past the bubbles: remove them permanently.
+      if (window.scrollY > BUBBLES_HIDE_SCROLL_Y) {
+        setBubblesGone(true);
+      }
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -184,12 +194,21 @@ function Landing() {
           ArtClicked,
           ModelClicked,
           HammerClicked,
+          bubblesGone,
         }),
       );
     } catch {
       // storage unavailable (private mode etc.) - ignore
     }
-  }, [replaceSil, spin, isWalking, ArtClicked, ModelClicked, HammerClicked]);
+  }, [
+    replaceSil,
+    spin,
+    isWalking,
+    ArtClicked,
+    ModelClicked,
+    HammerClicked,
+    bubblesGone,
+  ]);
 
   // Called right before leaving for another page, so the saved scroll is exact.
   function saveLandingScroll() {
@@ -249,15 +268,21 @@ function Landing() {
                 />
               )}
 
-              <div id="bubblesDiv">
-                <img src={HelloThere} id="HelloThere" className="bubbles"></img>
-                <img src={BIS} id="BIS" className="bubbles"></img>
-                <img src={intro1} id="intro1" className="bubbles"></img>
-                <img src={intro2} id="intro2" className="bubbles"></img>
-                <img src={intro3} id="intro3" className="bubbles"></img>
-                <img src={intro4} id="intro4" className="bubbles"></img>
-                <img src={intro5} id="intro5" className="bubbles"></img>
-              </div>
+              {!bubblesGone && (
+                <div id="bubblesDiv">
+                  <img
+                    src={HelloThere}
+                    id="HelloThere"
+                    className="bubbles"
+                  ></img>
+                  <img src={BIS} id="BIS" className="bubbles"></img>
+                  <img src={intro1} id="intro1" className="bubbles"></img>
+                  <img src={intro2} id="intro2" className="bubbles"></img>
+                  <img src={intro3} id="intro3" className="bubbles"></img>
+                  <img src={intro4} id="intro4" className="bubbles"></img>
+                  <img src={intro5} id="intro5" className="bubbles"></img>
+                </div>
+              )}
             </div>
           ) : (
             <div id="spinningDiv">
