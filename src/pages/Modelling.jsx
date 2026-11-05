@@ -4,10 +4,12 @@ import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
 import { Model } from "/Keogh_nighttime";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls, useGLTF } from "@react-three/drei";
 import "../styles/Model.css";
 import background from "../assets/ModellingBackground.webp";
 import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { PageLoadContext } from "../components/PageLoadContext";
 
 // Swap these for your real photos
 import photo1 from "../assets/zoom2.png";
@@ -17,7 +19,25 @@ import photo4 from "../assets/zoom3.png";
 
 const photos = [photo1, photo2, photo3, photo4];
 
+function ModelLoadingTracker() {
+  const { reportPending } = useContext(PageLoadContext);
+  useGLTF("/Keogh_nighttime.glb");
+
+  useEffect(() => {
+    reportPending("model", false);
+  }, [reportPending]);
+
+  return null;
+}
+
 function Modelling() {
+  const { reportPending } = useContext(PageLoadContext);
+
+  useEffect(() => {
+    reportPending("model", true);
+    return () => reportPending("model", false);
+  }, [reportPending]);
+
   return (
     <div id="ModellingPage" style={{ backgroundImage: `url(${background})` }}>
       <Link to="/" state={{ returnToLanding: true }}>
@@ -55,6 +75,7 @@ function Modelling() {
               <Center>
                 <Model />
               </Center>
+              <ModelLoadingTracker />
             </Canvas>
           </div>
         </div>

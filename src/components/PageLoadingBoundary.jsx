@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import loadingImage from "../assets/headLogo.png";
+import { PageLoadContext } from "./PageLoadContext";
 import "../styles/PageLoading.css";
 
 function waitForImage(image) {
@@ -159,14 +160,39 @@ async function waitForPageAssets(root) {
 export default function PageLoadingBoundary({ children }) {
   const location = useLocation();
   const pageRef = useRef(null);
-  const [loading, setLoading] = useState(true);
-  const [showLoader, setShowLoader] = useState(false);
+  const routeKey = `${location.pathname}:${location.key}`;
+  const [loadState, setLoadState] = useState(() => ({
+    key: routeKey,
+    loading: true,
+    showLoader: false,
+  }));
+  const [pendingTasks, setPendingTasks] = useState(() => new Set());
+  const reportPending = useCallback(
+    (task, isPending) => {
+      const taskKey = `${routeKey}:${task}`;
+      setPendingTasks((current) => {
+        const next = new Set(current);
+        if (isPending) next.add(taskKey);
+        else next.delete(taskKey);
+        return next;
+      });
+    },
+    [routeKey],
+  );
+  const routeChanged = loadState.key !== routeKey;
+  const hasPendingTasks = [...pendingTasks].some((task) =>
+    task.startsWith(`${routeKey}:`),
+  );
+  const loading = routeChanged || loadState.loading || hasPendingTasks;
+  const showLoader = !routeChanged && loadState.showLoader;
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
-    setShowLoader(false);
-    const showTimer = window.setTimeout(() => setShowLoader(true), 120);
+    const showTimer = window.setTimeout(() => {
+      if (!cancelled) {
+        setLoadState({ key: routeKey, loading: true, showLoader: true });
+      }
+    }, 120);
 
     async function loadPage() {
       if (pageRef.current) {
@@ -174,8 +200,7 @@ export default function PageLoadingBoundary({ children }) {
       }
       if (!cancelled) {
         window.clearTimeout(showTimer);
-        setLoading(false);
-        setShowLoader(false);
+        setLoadState({ key: routeKey, loading: false, showLoader: false });
       }
     }
 
@@ -184,18 +209,20 @@ export default function PageLoadingBoundary({ children }) {
       cancelled = true;
       window.clearTimeout(showTimer);
     };
-  }, [location.pathname, location.key]);
+  }, [routeKey]);
 
   return (
     <div ref={pageRef} className="page-loading-root" aria-busy={loading}>
       <link rel="preload" as="image" href={loadingImage} />
-      {children}
-      {loading && showLoader && (
-        <div className="page-loader" role="status" aria-label="Loading page">
-          <img src={loadingImage} alt="" />
-          <span>Loading...</span>
-        </div>
-      )}
+      <PageLoadContext.Provider value={{ reportPending }}>
+        {children}
+        {loading && (showLoader || hasPendingTasks) && (
+          <div className="page-loader" role="status" aria-label="Loading page">
+            <img src={loadingImage} alt="" />
+            <span>Loading...</span>
+          </div>
+        )}
+      </PageLoadContext.Provider>
     </div>
   );
 }

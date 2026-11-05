@@ -1,13 +1,8 @@
-import DropdownMenu from "./components/DropdownMenu";
-
-import NavItem from "./components/NavItem";
 import Landing from "./pages/Landing"
-import head from "./assets/headLogo.png";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Art from "./pages/Art";
 import CodeSKills from "./pages/CodeSkills";
 import Modelling from "./pages/Modelling";
-import PolaroidLineCarousel from "./components/PolaroidLineCarousel";
 import Comic from "./pages/Comic";
 import Infographic from "./pages/Infographic";
 import VerticalNar from "./pages/VerticalNar";
