@@ -11,13 +11,29 @@
   text-align: center;
 }
 
+
 .SkillPreview {
   position: absolute;
-  top: calc(50% - 300px);
-  left: 8%;
+  top: calc(60% - 300px);
+  right: 30%;
   width: min(220px, 22vw);
   height: min(220px, 22vw);
   object-fit: contain;
+}
+.skillName{
+  position: absolute;
+  left: 30%;
+  top: calc(65% - 300px);
+  width: min(100px, 22vw);
+  height: min(220px, 22vw);
+  object-fit: contain;
+  color: rgb(21, 3, 26);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+
+    overflow:auto;
 }
 
 .Bar {
@@ -27,6 +43,7 @@
   max-height: calc(100vh - 180px);
   max-height: calc(100dvh - 180px);
   object-fit: contain;
+  transform: translate(0,27px);
 }
 
 .SkillsArrow {

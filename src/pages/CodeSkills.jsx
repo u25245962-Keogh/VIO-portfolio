@@ -6,9 +6,9 @@ import background from "../assets/HammerBackground.jpeg";
 import "../styles/CodeSkills.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import H90 from "../assets/Hammer90.png";
-import H80 from "../assets/Hammer80.png";
-import H70 from "../assets/Hammer70.png";
+import H90 from "../assets/Hammer90.gif";
+import H80 from "../assets/Hammer80.gif";
+import H70 from "../assets/Hammer70.gif";
 import H60 from "../assets/hammer60.gif";
 import LeftHammer from "../assets/LeftHammer.png";
 import RightHammer from "../assets/RightHammer.png";
@@ -24,7 +24,7 @@ import Java from "../assets/Java.webp"
 
 
 const skills = [
-  { name: "HTML5 and CSS", image: H90, preview: HTMLCSS },
+  { name: "HTML & CSS", image: H90, preview: HTMLCSS },
   { name: "C++", image: H70, preview: CPP },
   { name: "React", image: H80, preview: React },
   { name: "SQL", image: H70, preview: SQL },
@@ -44,12 +44,16 @@ function CodeSKills() {
         </NavItem>
       </Navbar>
       <header className="SkillsHeader">
+        <div className="mySkills">
+          <h1 className="my">My</h1>
+          <h1 className="skills">Skills</h1>
+        </div>
+
         <Link to="/" state={{ returnToLanding: true }}>
           <button type="button" id="CodeSkillsBack">
             Back
           </button>
         </Link>
-        <h1>My Skills!</h1>
       </header>
       <div className="SkillsCarousel">
         <img
@@ -57,6 +61,7 @@ function CodeSKills() {
           className="SkillPreview"
           alt={`${skill.name} preview`}
         />
+        <h2 className="skillName">{skill.name }</h2>
         <button
           type="button"
           className="SkillsArrow SkillsArrowPrevious"

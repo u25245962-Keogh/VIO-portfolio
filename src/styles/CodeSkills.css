@@ -24,10 +24,7 @@
   gap: 8px;
   padding: 8px 24px;
 }
-.Bar{
-  transform: translate(0,3px);
 
-}
 
 .SkillsHeader h1 {
   margin: 0;
@@ -52,3 +49,12 @@
   transform: scale(1.05) rotate(3deg) translateY(-5px) skewX(2deg);
 
 }
+
+.mySkills{
+  position: absolute;
+  transform: translate(570px);
+  font-size: 3em;
+  display: flex;
+  gap: 140%;
+}
+
