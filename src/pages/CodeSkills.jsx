@@ -4,7 +4,7 @@ import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
 import background from "../assets/HammerBackground.jpeg";
 import "../styles/CodeSkills.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import H90 from "../assets/Hammer90.gif";
 import H80 from "../assets/Hammer80.gif";
@@ -34,10 +34,26 @@ const skills = [
 
 function CodeSKills() {
   const [skillIndex, setSkillIndex] = useState(0);
+  const hammerAudioRef = useRef(null);
   const skill = skills[skillIndex];
+
+  function changeSkill(direction) {
+    setSkillIndex((index) =>
+      Math.max(0, Math.min(index + direction, skills.length - 1)),
+    );
+
+    const hammerAudio = hammerAudioRef.current;
+    if (hammerAudio) {
+      hammerAudio.currentTime = 0;
+      hammerAudio.play().catch((error) => {
+        console.error("Unable to play hammer audio:", error);
+      });
+    }
+  }
 
   return (
     <div id="CodeSkillsPage" style={{ backgroundImage: `url(${background})` }}>
+      <audio ref={hammerAudioRef} src="/hammer.wav" preload="auto" />
       <Navbar>
         <NavItem icon={head}>
           <DropdownMenu></DropdownMenu>
@@ -66,7 +82,7 @@ function CodeSKills() {
           type="button"
           className="SkillsArrow SkillsArrowPrevious"
           aria-label="Previous skill"
-          onClick={() => setSkillIndex((index) => Math.max(index - 1, 0))}
+          onClick={() => changeSkill(-1)}
           disabled={skillIndex === 0}
         >
           <img src={LeftHammer} alt="" className="HammerArrow" />
@@ -83,9 +99,7 @@ function CodeSKills() {
           type="button"
           className="SkillsArrow SkillsArrowNext"
           aria-label="Next skill"
-          onClick={() =>
-            setSkillIndex((index) => Math.min(index + 1, skills.length - 1))
-          }
+          onClick={() => changeSkill(1)}
           disabled={skillIndex === skills.length - 1}
         >
           <img src={RightHammer} alt="" className="HammerArrow" />

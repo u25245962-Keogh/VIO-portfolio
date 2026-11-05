@@ -384,6 +384,7 @@ export default function PolaroidLineCarousel({
   const [dragging, setDragging] = React.useState(false);
   const [size, setSize] = React.useState({ w: 1200, h: 800, cw: cardWidth });
   const rootRef = React.useRef(null as HTMLDivElement | null);
+  const swipeAudioRef = React.useRef<HTMLAudioElement>(null);
   const pathRef = React.useRef(null as SVGPathElement | null);
   const cards = React.useRef([] as (HTMLDivElement | null)[]);
   const sim = React.useRef({
@@ -503,6 +504,15 @@ export default function PolaroidLineCarousel({
       if (near !== activeRef.current) {
         activeRef.current = near;
         setActive(near);
+        if (performance.now() - lastTouch.current < 1500) {
+          const swipeAudio = swipeAudioRef.current;
+          if (swipeAudio) {
+            swipeAudio.currentTime = 0;
+            swipeAudio.play().catch((error: unknown) => {
+              console.error("Unable to play swipe audio:", error);
+            });
+          }
+        }
       }
       raf = requestAnimationFrame(frame);
     };
@@ -622,6 +632,7 @@ export default function PolaroidLineCarousel({
       onPointerCancel={onUp}
     >
       <style>{PL_CSS}</style>
+      <audio ref={swipeAudioRef} src="/swipe.mp3" preload="auto" />
       <svg className="pl-string" aria-hidden="true">
         <path
           ref={pathRef}

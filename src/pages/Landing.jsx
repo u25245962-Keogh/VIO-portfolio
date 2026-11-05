@@ -106,6 +106,7 @@ function Landing() {
   // Tallest document height seen so far. Used to ignore the scroll events the
   // browser fires when it clamps the scroll position as we navigate away.
   const maxHeightRef = useRef(0);
+  const walkingAudioRef = useRef(null);
 
   // Stop the browser from fighting our own scroll restoration.
   useEffect(() => {
@@ -154,7 +155,23 @@ function Landing() {
 
   // Track scroll: remember position, and swap the silhouette once scrolled far enough.
   useEffect(() => {
+    let audioPauseTimeout;
+
     function handleScroll() {
+      const walkingAudio = walkingAudioRef.current;
+      if (walkingAudio) {
+        if (walkingAudio.paused) {
+          walkingAudio.play().catch((error) => {
+            console.error("Unable to play walking audio:", error);
+          });
+        }
+
+        window.clearTimeout(audioPauseTimeout);
+        audioPauseTimeout = window.setTimeout(() => {
+          walkingAudio.pause();
+        }, 200);
+      }
+
       const height = document.documentElement.scrollHeight;
       if (height > maxHeightRef.current) {
         maxHeightRef.current = height;
@@ -178,7 +195,11 @@ function Landing() {
     }
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.clearTimeout(audioPauseTimeout);
+      walkingAudioRef.current?.pause();
+    };
   }, []);
 
   // Persist UI state whenever it changes, so it survives navigation
@@ -373,6 +394,7 @@ function Landing() {
           <img src={linkedin} id="postLinkedin"></img>
         </a>
       </div>
+      <audio ref={walkingAudioRef} src="/walking.mp3" preload="auto" loop />
     </>
   );
 }

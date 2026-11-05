@@ -8,6 +8,7 @@ import page5 from "../assets/Comic/FINAL5.png";
 import back from "../assets/Comic/FINAL5 - Copy.png";
 import back2 from "../assets/Comic/FINAL5 - Copy.png";
 import "../styles/Comic.css";
+import { useRef } from "react";
 
 
 function Component({
@@ -15,6 +16,7 @@ function Component({
 }: {
   onLastPageChange: (isLastPage: boolean) => void;
 }) {
+  const pageAudioRef = useRef<HTMLAudioElement>(null);
   const pageData = [
     { id: 1, image: page1 },
     { id: 2, image: page2 },
@@ -25,8 +27,21 @@ function Component({
     { id: 7, image: back2 },
   ];
 
+  function handleFlip(pageIndex: number) {
+    onLastPageChange(pageIndex === pageData.length);
+
+    const pageAudio = pageAudioRef.current;
+    if (pageAudio) {
+      pageAudio.currentTime = 0;
+      pageAudio.play().catch((error: unknown) => {
+        console.error("Unable to play page-turn audio:", error);
+      });
+    }
+  }
+
   return (
     <div className="comic-book-wrapper" style={{ position: "relative", zIndex: 0 }}>
+      <audio ref={pageAudioRef} src="/page.wav" preload="auto" />
       <HTMLFlipBook
         width={550}
         height={760}
@@ -34,7 +49,7 @@ function Component({
         drawShadow={true}
         showCover={true}
         size="fixed"
-        onFlip={(event) => onLastPageChange(event.data === pageData.length)}
+        onFlip={(event) => handleFlip(event.data)}
       >
         <div className="page" style={{ background: "white" }}>
           <div className="page-content cover">
