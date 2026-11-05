@@ -11,6 +11,7 @@ import PolaroidLineCarousel from "./components/PolaroidLineCarousel";
 import Comic from "./pages/Comic";
 import Infographic from "./pages/Infographic";
 import VerticalNar from "./pages/VerticalNar";
+import PageLoadingBoundary from "./components/PageLoadingBoundary";
 
 
 
@@ -19,15 +20,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />}></Route>
-        <Route path="/art" element={<Art />}></Route>
-        <Route path="/CodeSkills" element={<CodeSKills />}></Route>
-        <Route path="/Modelling" element={<Modelling />}></Route>
-        <Route path="/Comic" element={<Comic />}></Route>
-        <Route path="/Infographic" element={<Infographic />}></Route>
-        <Route path="/VerticalNar" element={<VerticalNar />}></Route>
-      </Routes>
+      <PageLoadingBoundary>
+        <Routes>
+          <Route path="/" element={<Landing />}></Route>
+          <Route path="/art" element={<Art />}></Route>
+          <Route path="/CodeSkills" element={<CodeSKills />}></Route>
+          <Route path="/Modelling" element={<Modelling />}></Route>
+          <Route path="/Comic" element={<Comic />}></Route>
+          <Route path="/Infographic" element={<Infographic />}></Route>
+          <Route path="/VerticalNar" element={<VerticalNar />}></Route>
+        </Routes>
+      </PageLoadingBoundary>
     </BrowserRouter>
   );
 }

@@ -1,0 +1,38 @@
+.page-loading-root {
+  min-height: 100vh;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #153e5a;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+}
+
+.page-loader img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  animation: page-loader-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes page-loader-pulse {
+  50% {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader img {
+    animation: none;
+  }
+}
