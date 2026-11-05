@@ -1,5 +1,13 @@
+#comic-page {
+    min-height: 100vh;
+    background-image: url("../assets/comicBackground.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .comicPage{
-    width: 650px;
+    width: 550px;
 
 }
 .comic-book-wrapper{
@@ -13,14 +21,37 @@
 
 #myComicP{
     text-align: center;
+    margin: 0 0 8px;
+    padding-top: 60px;
+    color: rgb(36, 40, 66);
 }
 #infographic-btn{
     position: absolute;
     z-index: 2;
     transform: translate(800px,300px);
+    background: transparent; 
+    border: 0;
+}
+#infographic-btnn{
+    transform: translate(300px,-90px);
+    background: transparent; 
+    border: 0;
+   
 }
 
 #infographic-btnn:hover{
    cursor: pointer;
     
+}
+
+.btn-in-info{
+    position: absolute;
+    z-index: 2;
+    transform: translate(0px,-19px);
+}
+
+#vert-btn{
+    position: absolute;
+    z-index: 2;
+    transform: translate(-25px,-25px);
 }

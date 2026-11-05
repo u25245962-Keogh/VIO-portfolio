@@ -8,6 +8,7 @@ import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
 import "../styles/Model.css";
 import "../styles/font.css";
+import "../styles/Comic.css";
 
 const infographicAssets = import.meta.glob(
   "../assets/Comic/FINAL-infographic/**/*.{gif,png}",
@@ -61,6 +62,7 @@ function Infographic() {
         <button
           type="button"
           id="ModelBack"
+          className="btn-in-info"
           style={{ top: "70px", left: "25px", margin: 0 }}
         >
           Back

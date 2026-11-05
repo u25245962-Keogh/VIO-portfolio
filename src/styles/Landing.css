@@ -1,16 +1,26 @@
+/*
+  --u = "one design pixel" at the current screen width.
+  The layout was designed at 1920px wide, so 1920 is the reference width.
+  Change 1920 below if the scene looks mis-sized (see notes).
+  Road.css relies on this variable too.
+*/
+:root {
+    --u: calc(100vw / 1920);
+}
+
 #landingBox{
     display: flex;
     align-self: center;
     align-items: center;
     flex-direction: column;
-    height: 800px;
+    height: calc(var(--u) * 800);
 }
 #ScrollIndicator{
     position: relative;
     z-index: 7;
     align-self: center;
   
-   transform: translate(0,750px);
+   transform: translate(0, calc(var(--u) * 750));
    animation: fadePulse 2s infinite alternate ease-in-out;
     
 }
@@ -19,7 +29,7 @@
     z-index: 7;
     align-self: center;
   
-   transform: translate(22px,810px);
+   transform: translate(calc(var(--u) * 22), calc(var(--u) * 810));
    animation: fadePulse 2s infinite alternate ease-in-out;
     
 }
@@ -27,8 +37,8 @@
     position: absolute;
     z-index: 3;
     align-self: center;
-    transform: translate(22px,1040px);
-    height: min(870px, calc(100vh - 60px));
+    transform: translate(calc(var(--u) * 22), calc(var(--u) * 1040));
+    height: min(calc(var(--u) * 870), calc(100vh - 60px));
     animation: fadePulse 2s infinite alternate ease-in-out;
 
 }
@@ -39,13 +49,13 @@
     width: 100%;
     display: grid;
     place-items: center;
-    height: min(870px, calc(100vh - 60px));
+    height: min(calc(var(--u) * 870), calc(100vh - 60px));
     
 }
 
 #silhouetteCopy{
     grid-area: 1 / 1;
-    height: min(870px, calc(100vh - 60px));
+    height: min(calc(var(--u) * 870), calc(100vh - 60px));
     max-width: 100%;
     max-height: 100%;
     
@@ -55,7 +65,7 @@
     animation-range: normal, 0px 1700px, 1700px 2200px;
 }
 #shreyaChar, #shreyaCharS{
-    height: min(870px, calc(100vh - 60px));
+    height: min(calc(var(--u) * 870), calc(100vh - 60px));
     grid-area: 1 / 1;
     max-width: 100%;
     max-height: 100%;
@@ -76,7 +86,7 @@
 #shreyaCharS{
     position: relative;
    grid-area: 1 / 1;
-   height: min(870px, calc(100vh - 60px));
+   height: min(calc(var(--u) * 870), calc(100vh - 60px));
    max-width: 100%;
    max-height: 100%;
    z-index: 5;
@@ -93,7 +103,7 @@
     grid-area: 1 / 1;
     left: 30vw;
     translate: 0 350vh;
-    height: min(870px, calc(100vh - 60px));
+    height: min(calc(var(--u) * 870), calc(100vh - 60px));
     max-width: 100%;
     max-height: 100%;
     z-index: 7;
@@ -125,11 +135,11 @@
     width: 100%;
     display: grid;
     place-items: center;
-    height: min(870px, 100vh);
+    height: min(calc(var(--u) * 870), 100vh);
 }
 
 .bubbles{
-    height: 300px;
+    height: calc(var(--u) * 300);
 }
 #bubblesDiv{
     z-index: 3;
@@ -142,7 +152,7 @@
 z-index: 2;
 
 position: relative;
-transform: translate(370px, 100px);
+transform: translate(calc(var(--u) * 370), calc(var(--u) * 100));
 
 }
 
@@ -150,47 +160,47 @@ transform: translate(370px, 100px);
     z-index: 4;
 
 position: relative;
-transform: translate(-380px, 400px);
+transform: translate(calc(var(--u) * -380), calc(var(--u) * 400));
 
 }
 
 #intro1{
     z-index: 4;
-    height: 400px;
+    height: calc(var(--u) * 400);
     position: absolute;
-    transform: translate(-230px, 310px);
+    transform: translate(calc(var(--u) * -230), calc(var(--u) * 310));
     
 
 }
 #intro2{
     z-index: 5;
-    height: 400px;
+    height: calc(var(--u) * 400);
     position: absolute;
-    transform: translate(-230px, 310px);
+    transform: translate(calc(var(--u) * -230), calc(var(--u) * 310));
     animation: fadeIn 3s ease
 
 }
 #intro3{
     z-index: 6;
-    height: 400px;
+    height: calc(var(--u) * 400);
     position: absolute;
-    transform: translate(-230px, 310px);
+    transform: translate(calc(var(--u) * -230), calc(var(--u) * 310));
     
 
 }
 #intro4{
     z-index: 7;
-    height: 400px;
+    height: calc(var(--u) * 400);
     position: absolute;
-    transform: translate(-230px, 310px);
+    transform: translate(calc(var(--u) * -230), calc(var(--u) * 310));
     
 
 }
 #intro5{
     z-index: 8;
-    height: 400px;
+    height: calc(var(--u) * 400);
     position: absolute;
-    transform: translate(-230px, 310px);
+    transform: translate(calc(var(--u) * -230), calc(var(--u) * 310));
     
 
 }
@@ -208,9 +218,9 @@ transform: translate(-380px, 400px);
 #textLogoDiv{
     position: absolute;
     z-index: 1;
-    top: 200px;
+    top: calc(var(--u) * 200);
     align-self: center;
-    height: 500px;
+    height: calc(var(--u) * 500);
 
     opacity: 0;
 	animation: fadeIn 2s ease-in both; 

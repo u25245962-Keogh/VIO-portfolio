@@ -7,6 +7,7 @@ import comicHtml from "../assets/Comic/vertical-narrative/index.html?raw";
 import comicCss from "../assets/Comic/vertical-narrative/styles.css?raw";
 import audioCss from "../assets/Comic/vertical-narrative/audio.css?raw";
 import comicScript from "../assets/Comic/vertical-narrative/index.js?raw";
+import "../styles/Comic.css"
 
 const comicStyles = comicCss.replace(/^\uFEFF/, "");
 const comicAssets = import.meta.glob(
@@ -99,7 +100,7 @@ function VerticalNar() {
           zIndex: 1001,
         }}
       >
-        <button type="button" className="modelBackButton">
+        <button type="button" className="modelBackButton" id="vert-btn">
           Back
         </button>
       </Link>

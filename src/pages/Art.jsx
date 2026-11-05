@@ -29,52 +29,52 @@ function Art() {
           {
             image: "/Bam.webp",
             title: "Crash",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/boom.webp",
             title: "Boom",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/Krak.webp",
             title: "Bam",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/Pow.webp",
             title: "Krak",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/Joker.webp",
             title: "Joker illustration",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/Flash.webp",
             title: "The Flash and Captain Cold",
-            caption: "",
+            caption: "2023",
           },
           {
             image: "/Orchids.webp",
             title: "Orchids Lino",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/sunflowers.webp",
             title: "Sunflowers",
-            caption: "",
+            caption: "2023",
           },
           {
             image: "/stillLife1.webp",
             title: "Still life",
-            caption: "",
+            caption: "2024",
           },
           {
             image: "/stillLife2.webp",
             title: "Another Still life",
-            caption: "",
+            caption: "2025",
           },
         ]}
       />

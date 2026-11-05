@@ -13,7 +13,7 @@ function Comic() {
   const [hasReachedLastPage, setHasReachedLastPage] = useState(false);
 
   return (
-    <>
+    <div id="comic-page">
       <Link to="/" state={{ fromComic: true }}>
         <button type="button" id="ModelBack">
           Back
@@ -36,12 +36,12 @@ function Comic() {
         }}
       >
         <button type="button" id="infographic-btnn">
-          <img alt="Infographic" src={learnMore} width="220" />
+          <img alt="Infographic" src={learnMore} width="270" />
         </button>
       </Link>
 
       <ComicBook onLastPageChange={setHasReachedLastPage}></ComicBook>
-    </>
+    </div>
   );
 }
 

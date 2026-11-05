@@ -33,10 +33,8 @@
   color: white;
   font-size: 3em;
 
-  margin: 30px;
-  margin-top: 50px;
-  margin-left: 20px;
-  transform: translate(0px,42px);
+  margin: 0 30px 30px 20px;
+  transform: none;
   width: 500px;
 }
 
@@ -67,7 +65,7 @@
   #PhotoGrid {
     display: grid;
     grid-template-columns: repeat(2, 280px);
-    gap: 10px;
+    gap: 13px;
   }
   
   #PhotoGrid img {
@@ -81,8 +79,15 @@
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 2px;
     min-height: 0;
+  }
+
+  #ModelPanel {
+    flex: none;
+    width: min(45vw, 80vh);
+    margin-left: auto;
+    margin-top: 0;
   }
 
   #ModellingContent {
@@ -92,19 +97,25 @@
     gap: 40px;
     width: 100%;
     min-height: 100vh;
-    padding: 90px 40px 40px;
+    padding: 110px 40px 40px;
     box-sizing: border-box;
   }
   
   #ModelViewer {
-    transform: translate(0px,90px);
-    flex: none;
-    margin-left: auto;
-    width: min(45vw, 80vh);
+    width: 90%;
     aspect-ratio: 1 / 1;       /* square */
     height: auto;
     border: 3px solid #191e49;
     background-color: rgba(12, 21, 59, 0.651);
     box-sizing: border-box;
     overflow: hidden;
+  }
+
+  #feelFree{
+    font-family:  "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 1.5em;
+    margin: 0 0 16px;
   }

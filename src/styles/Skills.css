@@ -19,6 +19,7 @@
   width: min(220px, 22vw);
   height: min(220px, 22vw);
   object-fit: contain;
+
 }
 .skillName{
   position: absolute;

@@ -4,7 +4,7 @@ import DropdownMenu from "../components/DropdownMenu";
 import NavItem from "../components/NavItem";
 import { Model } from "/Keogh_nighttime";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import "../styles/Model.css";
 import background from "../assets/ModellingBackground.webp";
 import { Link } from "react-router-dom";
@@ -40,15 +40,23 @@ function Modelling() {
             ))}
           </div>
         </section>
+        <div id="ModelPanel">
+          <h2 id="feelFree">
+            Feel free to move around and explore the model. Some of the
+            textures in the model are not able to render properly because
+            the library I'm using cannot render procedural textures.
+          </h2>
+          <div id="ModelViewer">
+            <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
+              <ambientLight intensity={1.5} color="#ffffff" />
+              <directionalLight position={[5, 5, 5]} intensity={2} />
 
-        <div id="ModelViewer">
-          <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
-            <ambientLight intensity={1.5} color="#ffffff" />
-            <directionalLight position={[5, 5, 5]} intensity={2} />
-           
-            <OrbitControls enableZoom={true} />
-            <Model />
-          </Canvas>
+              <OrbitControls enableZoom={true} />
+              <Center>
+                <Model />
+              </Center>
+            </Canvas>
+          </div>
         </div>
       </div>
     </div>

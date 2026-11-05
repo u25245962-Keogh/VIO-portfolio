@@ -1,9 +1,11 @@
+/* Uses --u (one design pixel at the current screen width), defined in Landing.css. */
+
 #shreyaOutside{
     position: absolute;
     z-index: 10;
-    height: 870px;
+    height: calc(var(--u) * 870);
 
-    transform: translate(1410px, 2570px);
+    transform: translate(calc(var(--u) * 1410), calc(var(--u) * 2570));
     animation: outsideParallax linear both;
     animation-timeline: scroll(root block);
     animation-range: 350vh 100%;
@@ -11,45 +13,45 @@
 
 @keyframes outsideParallax {
     0% {
-        transform: translate(1410px, 2570px); /**/
+        transform: translate(calc(var(--u) * 1410), calc(var(--u) * 2570)); /**/
     }
 
     5% {
-        transform: translate(20px, 3670px);
+        transform: translate(calc(var(--u) * 20), calc(var(--u) * 3670));
     }
     14% {
-        transform: translate(20px, 3990px);
+        transform: translate(calc(var(--u) * 20), calc(var(--u) * 3990));
     }
 
     16%{
-        transform: translate(1580px, 4690px);/*at art stall*/
+        transform: translate(calc(var(--u) * 1580), calc(var(--u) * 4690));/*at art stall*/
     }
     19%{
-        transform: translate(1640px, 4690px);
+        transform: translate(calc(var(--u) * 1640), calc(var(--u) * 4690));
     }
     23%{
-        transform: translate(20px,6000px);
+        transform: translate(calc(var(--u) * 20), calc(var(--u) * 6000));
     }
     27%{
-        transform: translate(500px,6500px)
+        transform: translate(calc(var(--u) * 500), calc(var(--u) * 6500));
     }
     45%{
-        transform: translate(1500px,8100px)
+        transform: translate(calc(var(--u) * 1500), calc(var(--u) * 8100));
     }
     50%{
-        transform: translate(1500px,8500px)
+        transform: translate(calc(var(--u) * 1500), calc(var(--u) * 8500));
     }
     55%{
-        transform: translate(10px,9500px)
+        transform: translate(calc(var(--u) * 10), calc(var(--u) * 9500));
     }
     63%{
-        transform: translate(10px,10900px)
+        transform: translate(calc(var(--u) * 10), calc(var(--u) * 10900));
     }
     69%{
-        transform: translate(1640px,11500px)
+        transform: translate(calc(var(--u) * 1640), calc(var(--u) * 11500));
     }
     100%{
-        transform: translate(1640px,11500px)
+        transform: translate(calc(var(--u) * 1640), calc(var(--u) * 11500));
     }
     
 }
@@ -58,13 +60,13 @@
 #road{
 
     position: relative;
-    top: 2900px;
+    top: calc(var(--u) * 2900);
     width: 100%;
     z-index: 2;
 }
 #ReoadDecorations{
     position: relative;
-    top: -10300px;
+    top: calc(var(--u) * -10300);
     width: 100%;
     z-index: 11;
 }
@@ -72,16 +74,16 @@
 #ArtStallDiv{
  cursor: pointer;
     position: absolute;
-    transform: translate(1000px,-8700px);
+    transform: translate(calc(var(--u) * 1000), calc(var(--u) * -8700));
     z-index: 6;
 }
 #ArtStall{
     position: absolute;
-    height: 900px;
+    height: calc(var(--u) * 900);
 }
 .ArtSpeech{
-    transform: translate(-100px,200px);
-    height: 200px;
+    transform: translate(calc(var(--u) * -100), calc(var(--u) * 200));
+    height: calc(var(--u) * 200);
     z-index: 10;
 }
 .ArtSpeech:hover{
@@ -94,19 +96,19 @@
 #ModellingStallDiv{
     cursor: pointer;
     position: absolute;
-    transform: translate(1000px,-6100px);
+    transform: translate(calc(var(--u) * 1000), calc(var(--u) * -6100));
     z-index: 6;
 
 }
 
 #ModellingStall{
     position: absolute;
-    height: 900px; 
+    height: calc(var(--u) * 900); 
 }
 
 .ModelSpeech{
-    transform: translate(-100px,200px);
-    height: 200px;
+    transform: translate(calc(var(--u) * -100), calc(var(--u) * 200));
+    height: calc(var(--u) * 200);
     z-index: 10;
 }
 .ModelSpeech:hover{
@@ -116,8 +118,8 @@
 }
 #comicObject{
     position: absolute;
-    transform: translate(-990px,3500px);
-    height: 300px;
+    transform: translate(calc(var(--u) * -990), calc(var(--u) * 3500));
+    height: calc(var(--u) * 300);
     z-index: 7;
     filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.8));
 }
@@ -130,8 +132,8 @@
 #HammerMachine{
 
 position: absolute;
-    transform: translate(500px,-4000px);
-    height: 900px;
+    transform: translate(calc(var(--u) * 500), calc(var(--u) * -4000));
+    height: calc(var(--u) * 900);
     z-index: 13;
 }
 #HammerMachine:hover{
@@ -141,9 +143,9 @@ position: absolute;
 
     .HammerSpeech{
         position: absolute;
-        height: 200px;
+        height: calc(var(--u) * 200);
         z-index: 14;
-        transform: translate(700px,-3800px);
+        transform: translate(calc(var(--u) * 700), calc(var(--u) * -3800));
     }
 
     .HammerSpeech:hover{
@@ -153,14 +155,14 @@ position: absolute;
 
 
     #contactPost{
-        height: 1190px;
-        transform: translate(400px,-2000px);
+        height: calc(var(--u) * 1190);
+        transform: translate(calc(var(--u) * 400), calc(var(--u) * -2000));
         position: absolute;
         z-index: 10;
     }
     #postEmail{
-        height: 90px;
-        transform: translate(1100px,-1789px);
+        height: calc(var(--u) * 90);
+        transform: translate(calc(var(--u) * 1100), calc(var(--u) * -1789));
         position: absolute;
         z-index: 11;
 
@@ -169,15 +171,15 @@ position: absolute;
     }
    
     #postGithub{
-        height: 90px;
+        height: calc(var(--u) * 90);
         position: absolute;
         z-index: 11;
-        transform: translate(1130px,-1530px);
+        transform: translate(calc(var(--u) * 1130), calc(var(--u) * -1530));
       
     }
     #postLinkedin{
-        height: 75px;
-        transform: translate(1350px,-1670px);
+        height: calc(var(--u) * 75);
+        transform: translate(calc(var(--u) * 1350), calc(var(--u) * -1670));
         position: absolute;
         z-index: 11;
     }

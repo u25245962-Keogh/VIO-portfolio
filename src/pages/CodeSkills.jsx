@@ -14,11 +14,11 @@ import LeftHammer from "../assets/LeftHammer.png";
 import RightHammer from "../assets/RightHammer.png";
 import "../styles/Skills.css";
 import HTMLCSS from "../assets/HTML-CSS.png"
-import CPP from "../assets/cpp.webp";
-import React from "../assets/React.webp";
-import SQL from "../assets/SQL.jpg";
-import Vue from "../assets/Vue.webp";
-import Java from "../assets/Java.webp"
+import CPP from "../assets/cpp.png";
+import React from "../assets/React.png";
+import SQL from "../assets/SQL.png";
+import Vue from "../assets/Vue.png";
+import Java from "../assets/Java.png"
 
 
 

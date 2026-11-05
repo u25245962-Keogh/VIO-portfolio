@@ -28,8 +28,8 @@ function Component({
   return (
     <div className="comic-book-wrapper" style={{ position: "relative", zIndex: 0 }}>
       <HTMLFlipBook
-        width={650}
-        height={900}
+        width={550}
+        height={760}
         maxShadowOpacity={0.5}
         drawShadow={true}
         showCover={true}
