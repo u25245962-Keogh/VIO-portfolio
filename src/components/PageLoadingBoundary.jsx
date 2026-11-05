@@ -61,36 +61,41 @@ function waitForBackgroundImage(url) {
   });
 }
 
-function waitForFrame(frame) {
-  const isLoaded = () => {
-    const document = frame.contentDocument;
-    return (
-      document?.readyState === "complete" &&
-      Boolean(document.body?.childNodes.length)
-    );
-  };
-  if (isLoaded()) return Promise.resolve();
+function waitForFrameDocument(frame) {
+  const isReady = () =>
+    frame.contentDocument?.readyState !== "loading" &&
+    Boolean(frame.contentDocument?.body);
+  if (isReady()) return Promise.resolve();
 
   return new Promise((resolve) => {
-    const timeout = window.setTimeout(() => {
-      frame.removeEventListener("load", finish);
-      console.error(`Timed out loading embedded page: ${frame.title}`);
-      resolve();
-    }, 20000);
-    const finish = () => {
-      window.clearTimeout(timeout);
-      frame.removeEventListener("load", finish);
-      resolve();
-    };
-    frame.addEventListener("load", finish, { once: true });
-    if (isLoaded()) finish();
+    let attempts = 0;
+    function checkReady() {
+      if (isReady()) {
+        resolve();
+      } else if (attempts++ >= 300) {
+        console.error(`Timed out preparing embedded page: ${frame.title}`);
+        resolve();
+      } else {
+        window.setTimeout(checkReady, 16);
+      }
+    }
+    checkReady();
   });
 }
 
-function collectPageAssets(root) {
-  const elements = [root, ...root.querySelectorAll("*")];
-  const images = [...root.querySelectorAll("img")];
-  const frames = [...root.querySelectorAll("iframe")];
+function isInViewport(element, width, height) {
+  if (!element.getClientRects().length) return false;
+  const style = window.getComputedStyle(element);
+  if (style.display === "none" || style.visibility === "hidden") return false;
+  const rect = element.getBoundingClientRect();
+  return rect.bottom > 0 && rect.right > 0 && rect.top < height && rect.left < width;
+}
+
+function collectDocumentAssets(doc, width, height) {
+  const elements = [doc, ...doc.querySelectorAll("*")].filter((element) =>
+    isInViewport(element, width, height),
+  );
+  const images = elements.filter((element) => element.tagName === "IMG");
   const backgrounds = new Set();
   const urlPattern = /url\(["']?(.*?)["']?\)/g;
 
@@ -103,13 +108,41 @@ function collectPageAssets(root) {
     }
   }
 
+  return { images, backgrounds: [...backgrounds] };
+}
+
+function collectPageAssets(root) {
+  const visible = collectDocumentAssets(
+    root,
+    window.innerWidth,
+    window.innerHeight,
+  );
+  const frames = [...root.querySelectorAll("iframe")].filter((frame) =>
+    isInViewport(frame, window.innerWidth, window.innerHeight),
+  );
+  const images = [...visible.images];
+  const backgrounds = new Set(visible.backgrounds);
+
+  for (const frame of frames) {
+    const frameDocument = frame.contentDocument;
+    if (frameDocument?.readyState !== "loading" && frameDocument?.body) {
+      const frameAssets = collectDocumentAssets(
+        frameDocument.body,
+        frame.clientWidth,
+        frame.clientHeight,
+      );
+      images.push(...frameAssets.images);
+      frameAssets.backgrounds.forEach((url) => backgrounds.add(url));
+    }
+  }
+
   return {
     images,
     frames,
     backgrounds: [...backgrounds],
     signature: [
       ...images.map((image) => image.currentSrc || image.src),
-      ...frames.map((frame) => frame.src || frame.srcdoc),
+      ...frames.map((frame) => frame.src || frame.title || "srcdoc"),
       ...backgrounds,
     ].join("|"),
   };
@@ -122,7 +155,6 @@ function waitForNextFrames() {
 }
 
 async function waitForPageAssets(root) {
-  await document.fonts?.ready;
   const backgroundLoads = new Map();
   const frameLoads = new Map();
   let lastSignature = "";
@@ -140,7 +172,7 @@ async function waitForPageAssets(root) {
       }),
       ...assets.frames.map((frame) => {
         if (!frameLoads.has(frame)) {
-          frameLoads.set(frame, waitForFrame(frame));
+          frameLoads.set(frame, waitForFrameDocument(frame));
         }
         return frameLoads.get(frame);
       }),
