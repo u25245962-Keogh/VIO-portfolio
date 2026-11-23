@@ -6,7 +6,7 @@
   height: 100dvh;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #6393b9;
+  background-color: #bce1ff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,11 +50,11 @@
 
 }
 
-.mySkills{
+.my{
   position: absolute;
-  transform: translate(570px);
-  font-size: 3em;
+  transform: translate(300px);
+  font-size: 6em;
   display: flex;
-  gap: 140%;
+ 
 }
 

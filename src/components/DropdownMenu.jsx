@@ -17,16 +17,21 @@ function DropdownMenu() {
     <>
       <img src={navSpeech} id="navSpeech"></img>
       <div className="dropdown">
-
         <DropdownItem
           link="/"
-          state={location.pathname === "/" ? undefined : { returnToLanding: true }}
+          state={
+            location.pathname === "/" ? undefined : { returnToLanding: true }
+          }
         >
           home
         </DropdownItem>
         <DropdownItem link="/art">Art</DropdownItem>
         <DropdownItem link="/CodeSkills">Coding</DropdownItem>
         <DropdownItem link="/Modelling">3D</DropdownItem>
+        <DropdownItem link="/Comic">Comic</DropdownItem>
+
+        <DropdownItem link="/Infographic">Infographic</DropdownItem>
+        <DropdownItem link="/VerticalNar">Vertical Narrative</DropdownItem>
       </div>
     </>
   );

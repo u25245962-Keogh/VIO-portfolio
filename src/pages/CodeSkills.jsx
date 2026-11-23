@@ -24,7 +24,7 @@ import Java from "../assets/Java.png"
 
 
 const skills = [
-  { name: "HTML & CSS", image: H90, preview: HTMLCSS },
+  { name: "HTML+CSS", image: H90, preview: HTMLCSS },
   { name: "C++", image: H70, preview: CPP },
   { name: "React", image: H80, preview: React },
   { name: "SQL", image: H70, preview: SQL },
@@ -60,10 +60,7 @@ function CodeSKills() {
         </NavItem>
       </Navbar>
       <header className="SkillsHeader">
-        <div className="mySkills">
-          <h1 className="my">My</h1>
-          <h1 className="skills">Skills</h1>
-        </div>
+        <h1 className="my">My Skills</h1>
 
         <Link to="/" state={{ returnToLanding: true }}>
           <button type="button" id="CodeSkillsBack">
@@ -77,7 +74,11 @@ function CodeSKills() {
           className="SkillPreview"
           alt={`${skill.name} preview`}
         />
-        <h2 className="skillName">{skill.name }</h2>
+        <h2
+          className={`skillName ${skill.name === "HTML+CSS" ? "skillNameHtmlCss" : ""}`}
+        >
+          {skill.name}
+        </h2>
         <button
           type="button"
           className="SkillsArrow SkillsArrowPrevious"
