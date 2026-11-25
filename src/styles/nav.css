@@ -14,11 +14,11 @@ body{
 
 }
 #navSpeech{
-  height: 320px;
+  width:  280px;
 
   position: fixed;
-  top: 110px;
-  right: -50px;
+  top: 130px;
+  right: -30px;
 
   transform: translateX(-45%);
   overflow: hidden;
