@@ -13,6 +13,7 @@ import road from "../assets/road.png";
 import spinShreya from "../assets/CharacterSpin.gif";
 import HelloThere from "../assets/HelloThere.webp";
 import BIS from "../assets/BISmmStudent.webp";
+import Ilike from "../assets/Ilike.png";
 import intro1 from "../assets/intro1.webp";
 import intro2 from "../assets/intro2.webp";
 import intro3 from "../assets/intro3.webp";
@@ -295,6 +296,12 @@ function Landing() {
                     id="HelloThere"
                     className="bubbles"
                   ></img>
+                  <img
+                    src={Ilike}
+                    id="Ilike"
+                    className="bubbles"
+                    alt="I enjoy video games, hiking, tea, the colour blue, and technology"
+                  />
                   <img src={BIS} id="BIS" className="bubbles"></img>
                   <img src={intro1} id="intro1" className="bubbles"></img>
                   <img src={intro2} id="intro2" className="bubbles"></img>

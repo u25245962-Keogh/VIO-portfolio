@@ -19,6 +19,7 @@ import React from "../assets/React.png";
 import SQL from "../assets/SQL.png";
 import Vue from "../assets/Vue.png";
 import Java from "../assets/Java.png"
+import leaderboard from "../assets/leaderboard.png";
 
 
 
@@ -106,6 +107,11 @@ function CodeSKills() {
           <img src={RightHammer} alt="" className="HammerArrow" />
         </button>
       </div>
+      <img
+        src={leaderboard}
+        className="SkillsLeaderboard"
+        alt="Skills leaderboard"
+      />
     </div>
   );
 }

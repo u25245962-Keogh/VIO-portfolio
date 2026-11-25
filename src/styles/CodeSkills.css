@@ -6,7 +6,7 @@
   height: 100dvh;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #bce1ff;
+  background-color: #80ceff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -14,6 +14,24 @@
 
 #CodeSkillsPage > .navbar {
   flex: 0 0 60px;
+}
+
+.SkillsLeaderboard {
+  position: absolute;
+  top: 45%;
+  right: 450px;
+  z-index: 0;
+  width: min(22vw, 280px);
+  height: min(72vh, 600px);
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 600px) {
+  .SkillsLeaderboard {
+    right: 92px;
+  }
 }
 
 .SkillsHeader {
